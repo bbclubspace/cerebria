@@ -4,4 +4,5 @@ class Routes {
   static const String profile = '/profile';
   static const String sing_up = '/sing_up';
   static const String module_page = "/module_page";
+  static const String reading_page = "/reading_page";
 }

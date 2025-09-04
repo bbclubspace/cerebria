@@ -1,3 +1,5 @@
+
+import 'package:cerebria/themes/reading/reading_colors.dart';
 import 'auth/auth_colors.dart';
 import 'drawer/drawer_colors.dart';
 import 'home/home_colors.dart';
@@ -8,10 +10,12 @@ class AppColors {
   final HomeColors home;
   final DrawerColors drawer;
   final ModuleColors module;
+  final ReadingColors reading;
 
   AppColors({required bool isDarkMode})
       : auth = AuthColors(isDarkMode: isDarkMode),
         home = HomeColors(isDarkMode: isDarkMode),
         drawer = DrawerColors(isDarkMode: isDarkMode),
-        module = ModuleColors(isDarkMode: isDarkMode);
+        module = ModuleColors(isDarkMode: isDarkMode),
+        reading = ReadingColors(isDarkMode: isDarkMode);
 }
