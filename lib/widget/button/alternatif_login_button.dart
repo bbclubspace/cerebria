@@ -31,7 +31,7 @@ class AlternatifLoginButton extends StatelessWidget {
         // dışarıdan gelen parametreyi buraya atıyorum
         color: bgColor,
         borderRadius: BorderRadius.circular(50),
-        border: Border.all(color: colors.login.googleSignInStrokeColor),
+        border: Border.all(color: colors.auth.googleSignInStrokeColor),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

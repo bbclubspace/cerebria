@@ -24,9 +24,9 @@ class AuthTextfield extends StatelessWidget {
       width: 300,
       height: 50,
       decoration: BoxDecoration(
-        color: colors.login.textFieldBgColor,
+        color: colors.auth.textFieldBgColor,
         borderRadius: BorderRadius.circular(100),
-        border: Border.all(color: colors.login.textFieldStrokeColor),
+        border: Border.all(color: colors.auth.textFieldStrokeColor),
       ),
       child: TextField(
         decoration: InputDecoration(
@@ -37,18 +37,18 @@ class AuthTextfield extends StatelessWidget {
               iconPath,
               width: 50,
               height: 50,
-              color: colors.login.textFieldStrokeColor,
+              color: colors.auth.textFieldStrokeColor,
             ),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(color: colors.login.textFieldStrokeColor),
+          hintStyle: TextStyle(color: colors.auth.textFieldStrokeColor),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 20,
             vertical: 15,
           ),
         ),
-        style: TextStyle(color: colors.login.titleTextColor),
+        style: TextStyle(color: colors.auth.titleTextColor),
       ),
     );
   }

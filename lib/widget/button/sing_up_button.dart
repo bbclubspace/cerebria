@@ -20,7 +20,7 @@ class SingUpButton extends StatelessWidget {
         TextSpan(
           text: "Still haven't signed up? ",
           style: TextStyle(
-            color: colors.login.orContinueSocialButtonColor,
+            color: colors.auth.orContinueSocialButtonColor,
             fontSize: 17,
             fontWeight: FontWeight.bold,
           ),
@@ -28,7 +28,7 @@ class SingUpButton extends StatelessWidget {
             TextSpan(
               text: "Sign Up",
               style: TextStyle(
-                color: colors.login.buttonBgColor,
+                color: colors.auth.buttonBgColor,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.underline,

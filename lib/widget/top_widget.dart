@@ -3,9 +3,10 @@ import 'package:flutter/cupertino.dart';
 import '../themes/app_colors.dart';
 
 class TopWidget extends StatelessWidget {
-  const TopWidget({super.key, required this.colors});
+  const TopWidget({super.key, required this.colors, required this.onTapMenu});
 
   final AppColors colors;
+  final Function() onTapMenu;
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +14,21 @@ class TopWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         // menu buton
-        Container(
-          width: 40,
-          height: 40,
-          // arkasını circle yapabilmek için
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: colors.home.menuButtonBgColor,
-          ),
-          child: Image.asset(
-            "assets/homepage-icon/menu.png",
-            width: 30,
-            height: 30,
+        GestureDetector(
+          onTap: onTapMenu,
+          child: Container(
+            width: 40,
+            height: 40,
+            // arkasını circle yapabilmek için
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: colors.home.menuButtonBgColor,
+            ),
+            child: Image.asset(
+              "assets/homepage-icon/menu.png",
+              width: 30,
+              height: 30,
+            ),
           ),
         ),
         const SizedBox(width: 100),

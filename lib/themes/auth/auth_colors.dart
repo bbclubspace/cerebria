@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-class LoginColors {
+class AuthColors {
   final bool isDarkMode;
 
-  const LoginColors({required this.isDarkMode});
+  const AuthColors({required this.isDarkMode});
 
   Color get pageBgColor => isDarkMode ? const Color(0xFF121212) : const Color(0xFFF7F7F7);
   Color get titleTextColor => isDarkMode ? const Color(0xFFFFFFFF) : const Color(0xFF000000);
@@ -18,4 +18,6 @@ class LoginColors {
   Color get googleSignInStrokeColor => isDarkMode ? const Color(0xFFFFFFFF) : const Color(0xFFD2D2D2);
   Color get appleSignInBgColor => const Color(0xFF000000);
   Color get appleSignInTextColor => const Color(0xFFFFFFFF);
+  Color get backButtonStrokeColor => isDarkMode ? const Color(0xFF888888) : const Color(0xFFC8C8C8);
+  Color get backButtonBgColor => isDarkMode ? const Color(0xFF222222) : const Color(0xFFFFFFFF);
 }

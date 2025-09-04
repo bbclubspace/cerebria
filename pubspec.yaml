@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^1.1.6
+  jovial_svg: ^1.1.27
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +23,4 @@ flutter:
     - assets/content-icon/
     - assets/homepage-icon/
     - assets/auth-icon/
+    - assets/drawer-menu-icon/

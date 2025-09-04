@@ -17,7 +17,7 @@ class AuthTitleText extends StatelessWidget {
     return Text(
       title,
       style: TextStyle(
-        color: colors.login.titleTextColor,
+        color: colors.auth.titleTextColor,
         fontSize: 30,
         fontWeight: FontWeight.w900,
       ),

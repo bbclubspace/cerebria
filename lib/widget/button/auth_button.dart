@@ -22,15 +22,15 @@ class AuthButton extends StatelessWidget {
         width: 300,
         height: 50,
         decoration: BoxDecoration(
-          color: colors.login.buttonBgColor,
+          color: colors.auth.buttonBgColor,
           borderRadius: BorderRadius.circular(50),
-          border: Border.all(color: colors.login.buttonStrokeColor),
+          border: Border.all(color: colors.auth.buttonStrokeColor),
         ),
         child: Center(
           child: Text(
             "Continue",
             style: TextStyle(
-              color: colors.login.buttonTextColor,
+              color: colors.auth.buttonTextColor,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),

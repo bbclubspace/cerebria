@@ -1,12 +1,13 @@
+import 'package:cerebria/widget/button/alternatif_login_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import '../../routes/routes.dart';
 import '../../themes/app_colors.dart';
+import '../../widget/button/app_back_button.dart';
 import '../../widget/text/auth_title_text.dart';
 import '../../widget/textfield/auth_textfield.dart';
 import '../../widget/button/auth_button.dart';
-import '../../widget/button/alternatif_login_button.dart';
-import '../../widget/button/back_button.dart' as CustomButton;
+
+
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -15,16 +16,15 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = AppColors(isDarkMode: false);
     return Scaffold(
-      backgroundColor: colors.login.pageBgColor,
+      backgroundColor: colors.auth.pageBgColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              // BackButton'u en üstte ve sola hizalı olarak yerleştir
               Align(
                 alignment: Alignment.topLeft,
-                child: CustomButton.BackButton(
+                child: AppBackButton(
                   iconPath: 'assets/auth-icon/back.png',
                   colors: colors,
                   onTap: () {
@@ -70,7 +70,7 @@ class SignUpPage extends StatelessWidget {
                       Text(
                         "or use social media",
                         style: TextStyle(
-                          color: colors.login.orContinueSocialButtonColor,
+                          color: colors.auth.orContinueSocialButtonColor,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -81,8 +81,8 @@ class SignUpPage extends StatelessWidget {
                         colors: colors,
                         iconPath: 'assets/auth-icon/google.png',
                         buttonText: "Sign up with Google",
-                        bgColor: colors.login.googleSignInBgColor,
-                        textColor: colors.login.googleSignInTextColor,
+                        bgColor: colors.auth.googleSignInBgColor,
+                        textColor: colors.auth.googleSignInTextColor,
                       ),
                       const SizedBox(height: 10),
                       // Apple ile giriş butonu
@@ -90,8 +90,8 @@ class SignUpPage extends StatelessWidget {
                         colors: colors,
                         iconPath: 'assets/auth-icon/apple.png',
                         buttonText: "Sign up with Apple",
-                        bgColor: colors.login.appleSignInBgColor,
-                        textColor: colors.login.appleSignInTextColor,
+                        bgColor: colors.auth.appleSignInBgColor,
+                        textColor: colors.auth.appleSignInTextColor,
                       ),
                     ],
                   ),
