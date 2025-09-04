@@ -25,7 +25,7 @@ class AuthTextfield extends StatelessWidget {
       height: 50,
       decoration: BoxDecoration(
         color: colors.login.textFieldBgColor,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(100),
         border: Border.all(color: colors.login.textFieldStrokeColor),
       ),
       child: TextField(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/gestures.dart';
 import '../../routes/routes.dart';
 import '../../themes/app_colors.dart';
 import '../../widget/button/alternatif_login_button.dart';
 import '../../widget/button/auth_button.dart';
+import '../../widget/button/sing_up_button.dart';
 import '../../widget/text/auth_title_text.dart';
 import '../../widget/textfield/auth_textfield.dart';
 
@@ -17,7 +18,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: colors.login.pageBgColor,
       body: Padding(
-        padding: const EdgeInsets.only(left: 30),
+        padding: const EdgeInsets.only(left: 50),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,16 +48,16 @@ class LoginPage extends StatelessWidget {
 
             const SizedBox(height: 40),
             AuthButton(colors: colors, onTap: (){Navigator.pushReplacementNamed(context, Routes.home);},),
-            SizedBox(height: 25),
+            SizedBox(height: 15),
             Text(
               "or use social media",
               style: TextStyle(
                 color: colors.login.orContinueSocialButtonColor,
-                fontSize: 17,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 25),
 
             // buradaki butonlar reacttaki component mantığı gibi
             // google ile giriş butonu
@@ -76,6 +77,10 @@ class LoginPage extends StatelessWidget {
               bgColor: colors.login.appleSignInBgColor,
               textColor: colors.login.appleSignInTextColor,
             ),
+
+            const SizedBox(height: 20),
+            SingUpButton(colors: colors, onTap: (){Navigator.pushReplacementNamed(context, Routes.sing_up);},),
+            SizedBox(height: 50),
           ],
         ),
       ),

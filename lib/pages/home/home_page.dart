@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
                     // isim falan onun içeriği
                     HomeGreeting(
                       colors: colors,
-                      username: "Levent",
+                      username: "Eda",
                       subtitle: "What would you like to learn today?",
                       dailyGoalStatus: "%40",
                     ),
@@ -115,7 +115,7 @@ class HomePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: SizedBox(
-                  height: 100,
+                  height: 200,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemCount: ranks.length,

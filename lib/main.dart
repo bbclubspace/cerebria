@@ -1,6 +1,8 @@
 import 'package:cerebria/routes/routes.dart';
 import 'package:cerebria/pages/auth/login_page.dart';
 import 'package:cerebria/pages/home/home_page.dart';
+import 'package:cerebria/pages/auth/sing_up_page.dart';
+
 import 'package:flutter/material.dart';
 
 
@@ -22,6 +24,7 @@ class MainApp extends StatelessWidget {
       routes: {
         Routes.home: (context) => const HomePage(),
         Routes.login: (context) => const LoginPage(),
+        Routes.sing_up: (context) => const SignUpPage(),
       },
     );
   }
