@@ -10,4 +10,5 @@ class Routes {
   static const String grammer_page = "/grammer_page";
   static const String speaking_page = "/speaking_page";
   static const String exam_page = "/exam_page";
+  static const String ranking_page ="/ranking_page";
 }

@@ -1,4 +1,5 @@
 
+import 'package:cerebria/themes/ranking/ranking_colors.dart';
 import 'package:cerebria/themes/reading/reading_colors.dart';
 import 'auth/auth_colors.dart';
 import 'drawer/drawer_colors.dart';
@@ -11,11 +12,13 @@ class AppColors {
   final DrawerColors drawer;
   final ModuleColors module;
   final ReadingColors reading;
+  final RankingColors ranking;
 
   AppColors({required bool isDarkMode})
       : auth = AuthColors(isDarkMode: isDarkMode),
         home = HomeColors(isDarkMode: isDarkMode),
         drawer = DrawerColors(isDarkMode: isDarkMode),
         module = ModuleColors(isDarkMode: isDarkMode),
-        reading = ReadingColors(isDarkMode: isDarkMode);
+        reading = ReadingColors(isDarkMode: isDarkMode),
+        ranking = RankingColors(isDarkMode: isDarkMode);
 }

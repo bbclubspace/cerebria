@@ -1,9 +1,7 @@
 import 'package:cerebria/constants/module_item.dart';
 import 'package:cerebria/themes/app_colors.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../routes/routes.dart';
 
 import '../../widget/page_top_item.dart';
 
@@ -20,11 +18,9 @@ class ModulePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: 70),
-
           // back button and page name
           PageTopItem(colors: colors, pageName: "Module"),
           const SizedBox(height: 16),
-
           // module grid
           Expanded(
             child: GridView.builder(

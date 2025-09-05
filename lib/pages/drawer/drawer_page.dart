@@ -66,7 +66,7 @@ class NewRow extends StatelessWidget {
     final colors = AppColors(isDarkMode: false);
     return GestureDetector(
       onTap: () {
-        Navigator.pushReplacementNamed(context, Routes.login);
+        Navigator.pushNamed(context, Routes.ranking_page);
       },
       child: Row(
         children: [
