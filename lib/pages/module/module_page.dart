@@ -3,8 +3,8 @@ import 'package:cerebria/themes/app_colors.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../routes/routes.dart';
 
-import '../../widget/button/app_back_button.dart';
 import '../../widget/page_top_item.dart';
 
 class ModulePage extends StatelessWidget {
@@ -21,26 +21,11 @@ class ModulePage extends StatelessWidget {
         children: [
           SizedBox(height: 70),
 
-          Row(
-            children: [
-              const SizedBox(width: 16),
-              AppBackButton(iconPath: "assets/auth-icon/back.png", colors: colors),
-              const SizedBox(width: 100),
-               Text(
-                "Module",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400,color: colors.module.titleTextColor),
-              ),
-            ],
-          ),
+          // back button and page name
+          PageTopItem(colors: colors, pageName: "Module"),
           const SizedBox(height: 16),
 
           // module grid
-
-          // back button and page name
-          PageTopItem(colors: colors,pageName: "Module",),
-          const SizedBox(height: 16),
-       // module grid
-
           Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.all(16),
@@ -74,13 +59,13 @@ class ModulePage extends StatelessWidget {
                         const SizedBox(height: 8),
                         Text(
                           item.name,
-                          style:  TextStyle(
+                          style: TextStyle(
                             color: colors.module.moduleContainerTextColor,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ], 
+                      ],
                     ),
                   ),
                 );

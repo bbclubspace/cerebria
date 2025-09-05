@@ -18,7 +18,7 @@ class AppBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () => Navigator.of(context).pop(),
       child: Container(
         width: 50,
         height: 50,
@@ -30,7 +30,8 @@ class AppBackButton extends StatelessWidget {
             width: 1,
           ),
         ),
-        child: Center( // Icon'u tam ortaya almak için
+        child: Center(
+          // Icon'u tam ortaya almak için
           child: Image.asset(
             iconPath,
             width: 24, // Daha küçük boyut

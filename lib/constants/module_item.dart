@@ -10,6 +10,11 @@ final List<ModuleItem> modules = [
     color: colors.module.moduleContainerColor1,
   ),
   ModuleItem(
+    name: 'Vocabulary',
+    iconPath: "assets/content-icon/vocabulary.png",
+    color: colors.module.moduleContainerColor5,
+  ),
+  ModuleItem(
     name: 'Listening',
     iconPath: "assets/content-icon/listening.png",
     color: colors.module.moduleContainerColor2,
@@ -23,11 +28,6 @@ final List<ModuleItem> modules = [
     name: 'Speaking',
     iconPath: "assets/content-icon/talking.png",
     color: colors.module.moduleContainerColor4,
-  ),
-  ModuleItem(
-    name: 'Vocabulary',
-    iconPath: "assets/content-icon/vocabulary.png",
-    color: colors.module.moduleContainerColor5,
   ),
   ModuleItem(
     name: 'Exam',

@@ -7,8 +7,6 @@ import '../../widget/text/auth_title_text.dart';
 import '../../widget/textfield/auth_textfield.dart';
 import '../../widget/button/auth_button.dart';
 
-
-
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
