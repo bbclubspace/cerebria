@@ -1,9 +1,9 @@
 import 'package:cerebria/themes/app_colors.dart';
 import 'package:flutter/cupertino.dart';
+import '../../constants/module_item.dart';
 import 'package:flutter/material.dart';
 import '../../constants/daily_content_data.dart';
 import '../../constants/rank_data.dart';
-import '../../constants/module_item.dart';
 
 import '../../routes/routes.dart';
 import '../../widget/container/daily_content_status.dart';
@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                 children: modules.take(4).map((item) {
                   return InkWell(
                     onTap: () {
-                      // Navigate to the module's specific page here
+                      Navigator.pushNamed(context, item.route);
                     },
                     child: Container(
                       decoration: BoxDecoration(

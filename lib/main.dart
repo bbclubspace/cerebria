@@ -1,6 +1,12 @@
 import 'package:cerebria/pages/home/main_page.dart';
 import 'package:cerebria/pages/module/module_page.dart';
 import 'package:cerebria/pages/reading/reading_page.dart';
+import 'package:cerebria/pages/vocabulary/vocabulary_page.dart';
+import 'package:cerebria/pages/listening/listening_page.dart';
+import 'package:cerebria/pages/grammer/grammer_page.dart';
+import 'package:cerebria/pages/speaking/speaking_page.dart';
+import 'package:cerebria/pages/exam/exam_page.dart';
+
 import 'package:cerebria/routes/routes.dart';
 import 'package:cerebria/pages/auth/login_page.dart';
 import 'package:cerebria/pages/auth/sing_up_page.dart';
@@ -29,6 +35,11 @@ class MainApp extends StatelessWidget {
 
         Routes.module_page: (context) => const ModulePage(),
         Routes.reading_page: (context) => const ReadingPage(),
+        Routes.vocabulary_page: (context) => const VocabularyPage(),
+        Routes.listening_page: (context) => const ListeningPage(),
+        Routes.grammer_page: (context) => const GrammerPage(),
+        Routes.speaking_page: (context) => const SpeakingPage(),
+        Routes.exam_page: (context) => const ExamPage(),
       },
     );
   }
