@@ -14,46 +14,47 @@ class ExamPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = AppColors(isDarkMode: false);
     return Scaffold(
-      backgroundColor: colors.reading.pageBgColor,
+      backgroundColor: colors.exam.pageBgColor,
       body: Column(
         children: [
           const SizedBox(height: 60),
-          PageTopItem(colors: colors, pageName: "Reading"),
+          PageTopItem(colors: colors, pageName: "Exam"),
           const SizedBox(height: 20),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için
-            color1: colors.reading.createContainerBgColor1,
-            color2: colors.reading.createContainerBgColor2,
-            color3: colors.reading.createContainerBgColor3,
-            textColor: colors.reading.createContainerTextColor,
+            color1: colors.exam.createContainerBgColor1,
+            color2: colors.exam.createContainerBgColor2,
+            color3: colors.exam.createContainerBgColor3,
+            textColor: colors.exam.createContainerTextColor,
+            text: "CREATE YOUR OWN LIST OR\n   USE A READY-MADE ONE",
           ),
           const SizedBox(height: 25),
 
-          //completed reading
-          TitleText(colors: colors, title: "Completed Reading"),
+          //completed exercise
+          TitleText(colors: colors, title: "Completed Exercise"),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CompletedItem(
-                color: colors.reading.completedContainerBgColor1,
+                color: colors.exam.completedContainerBgColor1,
                 title: "Weekly",
                 value: "20",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.exam.itemTextColor,
               ),
               const SizedBox(width: 10),
               CompletedItem(
-                color: colors.reading.completedContainerBgColor2,
+                color: colors.exam.completedContainerBgColor2,
                 title: "Montly",
                 value: "50",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.exam.itemTextColor,
               ),
               const SizedBox(width: 10),
               CompletedItem(
-                color: colors.reading.completedContainerBgColor3,
+                color: colors.exam.completedContainerBgColor3,
                 title: "All Times",
                 value: "200",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.exam.itemTextColor,
               ),
             ],
           ),
@@ -65,17 +66,17 @@ class ExamPage extends StatelessWidget {
           // burada da text içeriklerini parametre olarak vermeyi ekleyip diğer sayfalarda kolaylık sağlayabilirsin
           // ekleyebilirsen ekle olmazsa ben eklerim
           LastExerciseItem(
-            containerBgColor: colors.reading.lastExerciseContainerColor,
-            textColor1: colors.reading.itemTextColor,
-            textColor2: colors.reading.itemLevelTextColor,
-            textColor3: colors.reading.itemDurationTextColor,
+            containerBgColor: colors.exam.lastExerciseContainerColor,
+            textColor1: colors.exam.itemTextColor,
+            textColor2: colors.exam.itemLevelTextColor,
+            textColor3: colors.exam.itemDurationTextColor,
           ),
           const SizedBox(height: 10),
           LastExerciseItem(
-            containerBgColor: colors.reading.lastExerciseContainerColor,
-            textColor1: colors.reading.itemTextColor,
-            textColor2: colors.reading.itemLevelTextColor,
-            textColor3: colors.reading.itemDurationTextColor,
+            containerBgColor: colors.exam.lastExerciseContainerColor,
+            textColor1: colors.exam.itemTextColor,
+            textColor2: colors.exam.itemLevelTextColor,
+            textColor3: colors.exam.itemDurationTextColor,
           ),
         ],
       ),

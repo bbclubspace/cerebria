@@ -145,11 +145,3 @@ class _RankingPageState extends State<RankingPage> {
     );
   }
 }
-
-
-
-
-
-
-
-

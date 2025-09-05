@@ -14,46 +14,47 @@ class SpeakingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = AppColors(isDarkMode: false);
     return Scaffold(
-      backgroundColor: colors.reading.pageBgColor,
+      backgroundColor: colors.speaking.pageBgColor,
       body: Column(
         children: [
           const SizedBox(height: 60),
-          PageTopItem(colors: colors, pageName: "Reading"),
+          PageTopItem(colors: colors, pageName: "Speaking"),
           const SizedBox(height: 20),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için
-            color1: colors.reading.createContainerBgColor1,
-            color2: colors.reading.createContainerBgColor2,
-            color3: colors.reading.createContainerBgColor3,
-            textColor: colors.reading.createContainerTextColor,
+            color1: colors.speaking.createContainerBgColor1,
+            color2: colors.speaking.createContainerBgColor2,
+            color3: colors.speaking.createContainerBgColor3,
+            textColor: colors.speaking.createContainerTextColor,
+            text: "START PRACTICING\nSPEAKING WITH AI",
           ),
           const SizedBox(height: 25),
 
-          //completed reading
-          TitleText(colors: colors, title: "Completed Reading"),
+          //completed exercise
+          TitleText(colors: colors, title: "Completed Exercise"),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CompletedItem(
-                color: colors.reading.completedContainerBgColor1,
+                color: colors.speaking.completedContainerBgColor1,
                 title: "Weekly",
                 value: "20",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.speaking.itemTextColor,
               ),
               const SizedBox(width: 10),
               CompletedItem(
-                color: colors.reading.completedContainerBgColor2,
+                color: colors.speaking.completedContainerBgColor2,
                 title: "Montly",
                 value: "50",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.speaking.itemTextColor,
               ),
               const SizedBox(width: 10),
               CompletedItem(
-                color: colors.reading.completedContainerBgColor3,
+                color: colors.speaking.completedContainerBgColor3,
                 title: "All Times",
                 value: "200",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.speaking.itemTextColor,
               ),
             ],
           ),
@@ -65,17 +66,17 @@ class SpeakingPage extends StatelessWidget {
           // burada da text içeriklerini parametre olarak vermeyi ekleyip diğer sayfalarda kolaylık sağlayabilirsin
           // ekleyebilirsen ekle olmazsa ben eklerim
           LastExerciseItem(
-            containerBgColor: colors.reading.lastExerciseContainerColor,
-            textColor1: colors.reading.itemTextColor,
-            textColor2: colors.reading.itemLevelTextColor,
-            textColor3: colors.reading.itemDurationTextColor,
+            containerBgColor: colors.speaking.lastExerciseContainerColor,
+            textColor1: colors.speaking.itemTextColor,
+            textColor2: colors.speaking.itemLevelTextColor,
+            textColor3: colors.speaking.itemDurationTextColor,
           ),
           const SizedBox(height: 10),
           LastExerciseItem(
-            containerBgColor: colors.reading.lastExerciseContainerColor,
-            textColor1: colors.reading.itemTextColor,
-            textColor2: colors.reading.itemLevelTextColor,
-            textColor3: colors.reading.itemDurationTextColor,
+            containerBgColor: colors.speaking.lastExerciseContainerColor,
+            textColor1: colors.speaking.itemTextColor,
+            textColor2: colors.speaking.itemLevelTextColor,
+            textColor3: colors.speaking.itemDurationTextColor,
           ),
         ],
       ),

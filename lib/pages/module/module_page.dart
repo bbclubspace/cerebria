@@ -34,34 +34,39 @@ class ModulePage extends StatelessWidget {
               itemCount: modules.length,
               itemBuilder: (context, index) {
                 final item = modules[index];
-                return Container(
-                  decoration: BoxDecoration(
-                    color: item.color,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 20),
-                        Image.asset(
-                          item.iconPath,
-                          width: 35,
-                          height: 35,
-                          fit: BoxFit.contain,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          item.name,
-                          style: TextStyle(
-                            color: colors.module.moduleContainerTextColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, item.route);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: item.color,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 20),
+                          Image.asset(
+                            item.iconPath,
+                            width: 35,
+                            height: 35,
+                            fit: BoxFit.contain,
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            item.name,
+                            style: TextStyle(
+                              color: colors.module.moduleContainerTextColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );

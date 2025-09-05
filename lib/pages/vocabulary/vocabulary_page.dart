@@ -14,46 +14,46 @@ class VocabularyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = AppColors(isDarkMode: false);
     return Scaffold(
-      backgroundColor: colors.reading.pageBgColor,
+      backgroundColor: colors.vocabulary.pageBgColor,
       body: Column(
         children: [
           const SizedBox(height: 60),
-          PageTopItem(colors: colors, pageName: "Reading"),
+          PageTopItem(colors: colors, pageName: "Vocabulary"),
           const SizedBox(height: 20),
           CreateAiContentContainer(
-            // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için
-            color1: colors.reading.createContainerBgColor1,
-            color2: colors.reading.createContainerBgColor2,
-            color3: colors.reading.createContainerBgColor3,
-            textColor: colors.reading.createContainerTextColor,
+            color1: colors.vocabulary.createContainerBgColor1,
+            color2: colors.vocabulary.createContainerBgColor2,
+            color3: colors.vocabulary.createContainerBgColor3,
+            textColor: colors.vocabulary.createContainerTextColor,
+            text: "CREATE YOUR OWN LIST OR\n   USE A READY-MADE ONE",
           ),
           const SizedBox(height: 25),
 
-          //completed reading
-          TitleText(colors: colors, title: "Completed Reading"),
+          //completed exercise
+          TitleText(colors: colors, title: "Completed Exercise"),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CompletedItem(
-                color: colors.reading.completedContainerBgColor1,
+                color: colors.vocabulary.completedContainerBgColor1,
                 title: "Weekly",
                 value: "20",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.vocabulary.itemTextColor,
               ),
               const SizedBox(width: 10),
               CompletedItem(
-                color: colors.reading.completedContainerBgColor2,
+                color: colors.vocabulary.completedContainerBgColor2,
                 title: "Montly",
                 value: "50",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.vocabulary.itemTextColor,
               ),
               const SizedBox(width: 10),
               CompletedItem(
-                color: colors.reading.completedContainerBgColor3,
+                color: colors.vocabulary.completedContainerBgColor3,
                 title: "All Times",
                 value: "200",
-                textColor: colors.reading.itemTextColor,
+                textColor: colors.vocabulary.itemTextColor,
               ),
             ],
           ),
@@ -65,17 +65,17 @@ class VocabularyPage extends StatelessWidget {
           // burada da text içeriklerini parametre olarak vermeyi ekleyip diğer sayfalarda kolaylık sağlayabilirsin
           // ekleyebilirsen ekle olmazsa ben eklerim
           LastExerciseItem(
-            containerBgColor: colors.reading.lastExerciseContainerColor,
-            textColor1: colors.reading.itemTextColor,
-            textColor2: colors.reading.itemLevelTextColor,
-            textColor3: colors.reading.itemDurationTextColor,
+            containerBgColor: colors.vocabulary.lastExerciseContainerColor,
+            textColor1: colors.vocabulary.itemTextColor,
+            textColor2: colors.vocabulary.itemLevelTextColor,
+            textColor3: colors.vocabulary.itemDurationTextColor,
           ),
           const SizedBox(height: 10),
           LastExerciseItem(
-            containerBgColor: colors.reading.lastExerciseContainerColor,
-            textColor1: colors.reading.itemTextColor,
-            textColor2: colors.reading.itemLevelTextColor,
-            textColor3: colors.reading.itemDurationTextColor,
+            containerBgColor: colors.vocabulary.lastExerciseContainerColor,
+            textColor1: colors.vocabulary.itemTextColor,
+            textColor2: colors.vocabulary.itemLevelTextColor,
+            textColor3: colors.vocabulary.itemDurationTextColor,
           ),
         ],
       ),

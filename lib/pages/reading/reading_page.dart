@@ -19,6 +19,7 @@ class ReadingPage extends StatelessWidget {
         children: [
           const SizedBox(height: 60),
           PageTopItem(colors: colors, pageName: "Reading"),
+
           const SizedBox(height: 20),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için
@@ -26,11 +27,12 @@ class ReadingPage extends StatelessWidget {
             color2: colors.reading.createContainerBgColor2,
             color3: colors.reading.createContainerBgColor3,
             textColor: colors.reading.createContainerTextColor,
+            text: "CREATE READING\n   TEXT WITH AI",
           ),
           const SizedBox(height: 25),
 
           //completed reading
-          TitleText(colors: colors, title: "Completed Reading"),
+          TitleText(colors: colors, title: "Completed Exercise"),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
