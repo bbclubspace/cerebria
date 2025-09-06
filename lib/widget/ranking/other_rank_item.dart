@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../model/user_rank_detail.dart';
 import '../../themes/app_colors.dart';
 
@@ -38,8 +39,8 @@ class OtherRankItem extends StatelessWidget {
         children: [
           // Rank number
           Container(
-            width: 32,
-            height: 32,
+            width: 32.w,
+            height: 32.h,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color:

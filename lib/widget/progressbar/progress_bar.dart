@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../themes/app_colors.dart';
 
@@ -12,8 +13,8 @@ class ProgressBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      height: 8,
+      width: 250.w,
+      height: 8.h,
       decoration: BoxDecoration(
         color: colors.home.statusBarEndColor,
         borderRadius: BorderRadius.circular(10),

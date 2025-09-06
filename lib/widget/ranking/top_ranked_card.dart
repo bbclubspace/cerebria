@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../model/user_rank_detail.dart';
 import '../../themes/app_colors.dart';
@@ -40,7 +41,7 @@ class TopRankCard extends StatelessWidget {
           style: TextStyle(
             color: colors.topRankTextColor,
             fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontSize: 20.h,
           ),
         ),
         Container(

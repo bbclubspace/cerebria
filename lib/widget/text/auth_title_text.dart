@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../themes/app_colors.dart';
 
@@ -18,7 +19,7 @@ class AuthTitleText extends StatelessWidget {
       title,
       style: TextStyle(
         color: colors.auth.titleTextColor,
-        fontSize: 30,
+        fontSize: 30.h,
         fontWeight: FontWeight.w900,
       ),
     );

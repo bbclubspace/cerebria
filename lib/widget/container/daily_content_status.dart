@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../themes/app_colors.dart';
 
@@ -19,13 +20,14 @@ class DailyContentStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(iconPath),
         Text(
           title,
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 12,
+            fontSize: 12.h,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -33,7 +35,7 @@ class DailyContentStatus extends StatelessWidget {
           value,
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 20,
+            fontSize: 20.h,
             fontWeight: FontWeight.bold,
           ),
         ),

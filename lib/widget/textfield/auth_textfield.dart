@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../themes/app_colors.dart';
 
 class AuthTextfield extends StatelessWidget {
@@ -20,8 +21,8 @@ class AuthTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // burda genişlik ve yüksekliği sabit verdik ama diğer ekranlarda uyumlu olması için ilerde Size değişkeniyle ekrana göre vericez
-      width: 300,
-      height: 50,
+      width: 300.w,
+      height: 50.h,
       decoration: BoxDecoration(
         color: colors.auth.textFieldBgColor,
         borderRadius: BorderRadius.circular(100),
@@ -40,7 +41,7 @@ class AuthTextfield extends StatelessWidget {
             ),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(color: colors.auth.textFieldStrokeColor),
+          hintStyle: TextStyle(color: colors.auth.textFieldStrokeColor,fontSize: 15.h),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 20,

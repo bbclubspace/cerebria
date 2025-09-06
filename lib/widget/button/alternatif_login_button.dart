@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../themes/app_colors.dart';
 
 class AlternatifLoginButton extends StatelessWidget {
@@ -24,8 +25,8 @@ class AlternatifLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 350,
-      height: 50,
+      width: 350.w,
+      height: 50.h,
       decoration: BoxDecoration(
         // dışarıdan gelen parametreyi buraya atıyorum
         color: bgColor,
@@ -35,9 +36,9 @@ class AlternatifLoginButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(iconPath,width: 30,height: 30,),
-          SizedBox(width: 10,),
-          Text(buttonText,style: TextStyle(color: textColor,fontSize: 17,fontWeight: FontWeight.bold),)
+          Image.asset(iconPath,width: 50.h,height: 50.w,),
+          SizedBox(width: 10.w,),
+          Text(buttonText,style: TextStyle(color: textColor,fontSize: 17.h,fontWeight: FontWeight.bold),)
         ],
       ),
     );

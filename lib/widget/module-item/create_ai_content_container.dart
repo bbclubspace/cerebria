@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CreateAiContentContainer extends StatelessWidget {
   final Color color1;
@@ -19,8 +20,8 @@ class CreateAiContentContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 355,
-      height: 127,
+      width: 355.w,
+      height: 127.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         gradient: LinearGradient(
@@ -35,7 +36,7 @@ class CreateAiContentContainer extends StatelessWidget {
           text,
           style: TextStyle(
             color: textColor,
-            fontSize: 22,
+            fontSize: 22.h,
             fontWeight: FontWeight.bold,
           ),
         ),

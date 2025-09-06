@@ -2,6 +2,7 @@ import 'package:cerebria/themes/app_colors.dart';
 import 'package:cerebria/widget/page_top_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widget/module-item/completed_item.dart';
 import '../../widget/module-item/create_ai_content_container.dart';
 import '../../widget/module-item/last_excercise_item.dart';
@@ -17,9 +18,9 @@ class SpeakingPage extends StatelessWidget {
       backgroundColor: colors.speaking.pageBgColor,
       body: Column(
         children: [
-          const SizedBox(height: 60),
+           SizedBox(height: 60.h),
           PageTopItem(colors: colors, pageName: "Speaking"),
-          const SizedBox(height: 20),
+           SizedBox(height: 20.h),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için
             color1: colors.speaking.createContainerBgColor1,
@@ -28,11 +29,11 @@ class SpeakingPage extends StatelessWidget {
             textColor: colors.speaking.createContainerTextColor,
             text: "START PRACTICING\nSPEAKING WITH AI",
           ),
-          const SizedBox(height: 25),
+           SizedBox(height: 25.h),
 
           //completed exercise
           TitleText(colors: colors, title: "Completed Exercise"),
-          const SizedBox(height: 10),
+           SizedBox(height: 10.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -42,14 +43,14 @@ class SpeakingPage extends StatelessWidget {
                 value: "20",
                 textColor: colors.speaking.itemTextColor,
               ),
-              const SizedBox(width: 10),
+               SizedBox(width: 10.w),
               CompletedItem(
                 color: colors.speaking.completedContainerBgColor2,
                 title: "Montly",
                 value: "50",
                 textColor: colors.speaking.itemTextColor,
               ),
-              const SizedBox(width: 10),
+               SizedBox(width: 10.w),
               CompletedItem(
                 color: colors.speaking.completedContainerBgColor3,
                 title: "All Times",

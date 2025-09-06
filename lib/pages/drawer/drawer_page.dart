@@ -1,6 +1,7 @@
 import 'package:cerebria/constants/drawer_item.dart';
 import 'package:cerebria/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../routes/routes.dart';
@@ -32,21 +33,21 @@ class _DrawerPageState extends State<DrawerPage> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 50, left: 40, bottom: 70),
+        padding:  EdgeInsets.only(top: 0, left: 0,),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(height: 100),
+             SizedBox(height: 100.h),
             NewRow(text: 'Home page', iconPath: drawerIcons['home']!),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             NewRow(text: 'Report', iconPath: drawerIcons['report']!),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             NewRow(text: 'Ranking', iconPath: drawerIcons['ranking']!),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             NewRow(text: 'Messaging', iconPath: drawerIcons['messaging']!),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             NewRow(text: 'Profile', iconPath: drawerIcons['profile']!),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             NewRow(text: 'Logout', iconPath: drawerIcons['logout']!),
           ],
         ),
@@ -71,11 +72,11 @@ class NewRow extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: 40,
-            height: 40,
+            width: 50.w,
+            height: 50.h,
             child: SvgPicture.asset(iconPath, fit: BoxFit.contain),
           ),
-          const SizedBox(width: 20),
+           SizedBox(width: 20.w),
           Text(
             text,
             style: TextStyle(

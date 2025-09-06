@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../themes/app_colors.dart';
 
@@ -21,7 +22,7 @@ class SingUpButton extends StatelessWidget {
           text: "Still haven't signed up? ",
           style: TextStyle(
             color: colors.auth.orContinueSocialButtonColor,
-            fontSize: 17,
+            fontSize: 17.h,
             fontWeight: FontWeight.bold,
           ),
           children: <TextSpan>[
@@ -29,7 +30,7 @@ class SingUpButton extends StatelessWidget {
               text: "Sign Up",
               style: TextStyle(
                 color: colors.auth.buttonBgColor,
-                fontSize: 20,
+                fontSize: 20.h,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.underline,
               ),

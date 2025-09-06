@@ -7,14 +7,19 @@ import 'package:cerebria/pages/listening/listening_page.dart';
 import 'package:cerebria/pages/grammer/grammer_page.dart';
 import 'package:cerebria/pages/speaking/speaking_page.dart';
 import 'package:cerebria/pages/exam/exam_page.dart';
-
 import 'package:cerebria/routes/routes.dart';
 import 'package:cerebria/pages/auth/login_page.dart';
 import 'package:cerebria/pages/auth/sing_up_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ScreenUtilInit(
+      designSize: const Size(390, 844),
+      builder: (context, child) => MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -23,6 +28,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       // uygulama çalışında debug diye bir flag oluyor ekranda onu kapadım
       debugShowCheckedModeBanner: false,
       // başlangıç olarak logini belirledim routes sınıfı üzerinden

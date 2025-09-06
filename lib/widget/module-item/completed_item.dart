@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CompletedItem extends StatelessWidget {
   final Color color;
@@ -17,8 +18,8 @@ class CompletedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 87,
+      width: 100.w,
+      height: 87.h,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(15),
@@ -30,7 +31,7 @@ class CompletedItem extends StatelessWidget {
             title,
             style: TextStyle(
               color: textColor,
-              fontSize: 16,
+              fontSize: 16.h,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -38,7 +39,7 @@ class CompletedItem extends StatelessWidget {
             value,
             style: TextStyle(
               color: textColor,
-              fontSize: 20,
+              fontSize: 20.h,
               fontWeight: FontWeight.w300,
             ),
           ),

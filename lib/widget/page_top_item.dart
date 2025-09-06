@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../themes/app_colors.dart';
 import 'button/app_back_button.dart';
@@ -12,13 +13,13 @@ class PageTopItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const SizedBox(width: 16),
+         SizedBox(width: 16.w),
         AppBackButton(iconPath: "assets/auth-icon/back.png", colors: colors),
-        const SizedBox(width: 100),
+         SizedBox(width: 100.w),
         Text(
           pageName,
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 30.h,
             fontWeight: FontWeight.w400,
             color: colors.module.titleTextColor,
           ),

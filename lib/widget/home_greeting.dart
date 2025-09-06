@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cerebria/themes/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeGreeting extends StatelessWidget {
   final AppColors colors;
@@ -24,7 +25,7 @@ class HomeGreeting extends StatelessWidget {
           "Hello $username",
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 20,
+            fontSize: 20.h,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -35,19 +36,19 @@ class HomeGreeting extends StatelessWidget {
           subtitle,
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 12,
+            fontSize: 12.h,
             fontWeight: FontWeight.w700,
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 5),
+         SizedBox(height: 5.h),
 
         // Günlük hedef durumu
         Text(
           "Daily goal status: $dailyGoalStatus",
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 12,
+            fontSize: 12.h,
             fontWeight: FontWeight.w400,
           ),
         ),

@@ -1,10 +1,10 @@
 import 'package:cerebria/themes/app_colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../constants/module_item.dart';
 import 'package:flutter/material.dart';
 import '../../constants/daily_content_data.dart';
 import '../../constants/rank_data.dart';
-
 import '../../routes/routes.dart';
 import '../../widget/container/daily_content_status.dart';
 import '../../widget/container/rank_and_ach_container.dart';
@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     //default rank verileri ekledim buraya kodda yer kaplamaması için
     final ranks = getRanks(colors);
     return AnimatedContainer(
+      height: double.infinity,
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(isDrawerOpen ? 0.85 : 1.00)
         ..rotateZ(isDrawerOpen ? -50 : 0),
@@ -45,165 +46,172 @@ class _HomePageState extends State<HomePage> {
           colors: [colors.home.pageBgColor1, colors.home.pageBgColor2],
         ),
       ),
+
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 80),
-            //menü, uygulama ismi, seçilen dil
-            //kodda çok yer kaplamaması için
-            TopWidget(
-              colors: colors,
-              onTapMenu: () {
-                if (isDrawerOpen) {
-                  setState(() {
-                    xOffset = 0;
-                    yOffset = 0;
-                    isDrawerOpen = false;
-                  });
-                } else {
-                  setState(() {
-                    xOffset = 290;
-                    yOffset = 80;
-                    isDrawerOpen = true;
-                  });
-                }
-              },
-            ),
-            const SizedBox(height: 20),
-            Container(
-              width: 400,
-              height: 246,
-              decoration: BoxDecoration(
-                //3 farklı renk vardı mor olan containerda gradient yapısı ile verebiliyoruz bunu
-                gradient: LinearGradient(
-                  colors: [
-                    colors.home.mainContainerColor1,
-                    colors.home.mainContainerColor2,
-                    colors.home.mainContainerColor3,
-                  ],
-                ),
-                // köşelerine ovallik verebilmek için
-                borderRadius: BorderRadius.circular(20),
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 50.h),
+              //menü, uygulama ismi, seçilen dil
+              //kodda çok yer kaplamaması için
+              TopWidget(
+                colors: colors,
+                onTapMenu: () {
+                  if (isDrawerOpen) {
+                    setState(() {
+                      xOffset = 0;
+                      yOffset = 0;
+                      isDrawerOpen = false;
+                    });
+                  } else {
+                    setState(() {
+                      xOffset = 290;
+                      yOffset = 80;
+                      isDrawerOpen = true;
+                    });
+                  }
+                },
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 5),
-                  // isim falan onun içeriği
-                  HomeGreeting(
-                    colors: colors,
-                    username: "Eda",
-                    subtitle: "What would you like to learn today?",
-                    dailyGoalStatus: "%20",
+              SizedBox(height: 20.h),
+              Container(
+                width: 405.w,
+                height: 246.h,
+                decoration: BoxDecoration(
+                  //3 farklı renk vardı mor olan containerda gradient yapısı ile verebiliyoruz bunu
+                  gradient: LinearGradient(
+                    colors: [
+                      colors.home.mainContainerColor1,
+                      colors.home.mainContainerColor2,
+                      colors.home.mainContainerColor3,
+                    ],
                   ),
+                  // köşelerine ovallik verebilmek için
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 5.h),
+                    // isim falan onun içeriği
+                    HomeGreeting(
+                      colors: colors,
+                      username: "Eda",
+                      subtitle: "What would you like to learn today?",
+                      dailyGoalStatus: "%20",
+                    ),
 
-                  const SizedBox(height: 10),
-                  // ilerleme çubuğu value değeri şuan 0.4 ile sabit bunu ilerde içeriğe göre ayarlıcaz
-                  ProgressBar(colors: colors, value: 0.2),
-                  const SizedBox(height: 30),
+                    SizedBox(height: 10.h),
+                    // ilerleme çubuğu value değeri şuan 0.4 ile sabit bunu ilerde içeriğe göre ayarlıcaz
+                    ProgressBar(colors: colors, value: 0.2),
+                    SizedBox(height: 30.h),
 
-                  // burada row row içerisinde de verebilirdim fakat kodda çok yer kaplıyor ve dinamik değil
-                  // sürekli yeni bir şey geldiğinde elle eklememiz gerekiyor
-                  SizedBox(
-                    height: 100,
-                    width: 320,
-                    child: Center(
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: dailyContents.length,
-                        separatorBuilder: (_, __) => const SizedBox(width: 60),
-                        itemBuilder: (context, index) {
-                          final item = dailyContents[index];
-                          return DailyContentStatus(
-                            iconPath: item.iconPath,
-                            title: item.title,
-                            value: item.value,
-                            colors: colors,
-                          );
-                        },
+                    // burada row row içerisinde de verebilirdim fakat kodda çok yer kaplıyor ve dinamik değil
+                    // sürekli yeni bir şey geldiğinde elle eklememiz gerekiyor
+                    SizedBox(
+                      height: 100.h,
+                      width: 330.w,
+                      child: Center(
+                        child: ListView.separated(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: dailyContents.length,
+                          separatorBuilder: (_, __) => SizedBox(width: 30.w),
+                          itemBuilder: (context, index) {
+                            final item = dailyContents[index];
+                            return Center(
+                              child: DailyContentStatus(
+                                iconPath: item.iconPath,
+                                title: item.title,
+                                value: item.value,
+                                colors: colors,
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
-            // rank ve achievement
-            Text(
-              "Rank and Achievements",
-              style: TextStyle(
-                color: colors.home.titleTextColor,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.left,
-            ),
-            const SizedBox(height: 10),
-            // daily content yapısına benzer yapı
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: SizedBox(
-                height: 120,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: ranks.length,
-                  separatorBuilder: (_, __) => const SizedBox(width: 10),
-                  itemBuilder: (context, index) {
-                    final item = ranks[index];
-                    return RankAndAchContainer(
-                      colors: colors,
-                      bgColor: item.bgColor,
-                      iconPath: item.iconPath,
-                      title: item.title,
-                      value: item.value,
-                    );
-                  },
+                  ],
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 2),
-              child: Row(
-                // <-- Buraya Row eklendi
-                mainAxisAlignment: MainAxisAlignment
-                    .spaceBetween, // <-- Çocukları uçlara yaslar
-                children: [
-                  Text(
-                    "Modules",
-                    style: TextStyle(
-                      color: colors.home.titleTextColor,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.module_page);
+              SizedBox(height: 10.h),
+              // rank ve achievement
+              Text(
+                "Rank and Achievements",
+                style: TextStyle(
+                  color: colors.home.titleTextColor,
+                  fontSize: 20.h,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(height: 10.h),
+              // daily content yapısına benzer yapı
+              Padding(
+                padding: EdgeInsets.only(left: 10.w),
+                child: SizedBox(
+                  height: 120.h,
+                  width: double.infinity,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: ranks.length,
+                    separatorBuilder: (_, __) => SizedBox(width: 10.w),
+                    itemBuilder: (context, index) {
+                      final item = ranks[index];
+                      return RankAndAchContainer(
+                        colors: colors,
+                        bgColor: item.bgColor,
+                        iconPath: item.iconPath,
+                        title: item.title,
+                        value: item.value,
+                      );
                     },
-                    child: Text(
-                      "View All",
+                  ),
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 2),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Modules",
                       style: TextStyle(
-                        color: colors.home.modulLinkColor,
-                        fontSize: 16,
+                        color: colors.home.titleTextColor,
+                        fontSize: 20.h,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ],
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.module_page);
+                      },
+                      child: Text(
+                        "View All",
+                        style: TextStyle(
+                          color: colors.home.modulLinkColor,
+                          fontSize: 16.h,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
 
-            // Moduller
-            Expanded(
-              child: GridView.count(
+              // Moduller
+              GridView.count(
                 crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                childAspectRatio: 160 / 120,
+                shrinkWrap: true,
+                physics:
+                    const NeverScrollableScrollPhysics(), // Scroll çatışmasını çözüyor
+                mainAxisSpacing: 16.w,
+                crossAxisSpacing: 16.w,
+                childAspectRatio: 160.w / 120.h,
                 padding: const EdgeInsets.symmetric(horizontal: 2),
                 children: modules.take(4).map((item) {
                   return InkWell(
@@ -216,24 +224,23 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20),
+                        padding: EdgeInsets.only(left: 20.w),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 20),
+                            SizedBox(height: 20.h),
                             Image.asset(
                               item.iconPath,
-                              width: 35,
-                              height: 35,
+                              width: 40.w,
+                              height: 40.h,
                               fit: BoxFit.contain,
                             ),
-                            const SizedBox(height: 8),
+                            SizedBox(height: 8.h),
                             Text(
                               item.name,
                               style: TextStyle(
                                 color: colors.module.moduleContainerTextColor,
-                                fontSize: 20,
+                                fontSize: 20.h,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -244,8 +251,9 @@ class _HomePageState extends State<HomePage> {
                   );
                 }).toList(),
               ),
-            ),
-          ],
+              SizedBox(height: 40.h,)
+            ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../themes/app_colors.dart';
 
@@ -19,8 +20,8 @@ class AuthButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 300,
-        height: 50,
+        width: 300.w,
+        height: 50.h,
         decoration: BoxDecoration(
           color: colors.auth.buttonBgColor,
           borderRadius: BorderRadius.circular(50),
@@ -31,7 +32,7 @@ class AuthButton extends StatelessWidget {
             "Continue",
             style: TextStyle(
               color: colors.auth.buttonTextColor,
-              fontSize: 20,
+              fontSize: 20.h,
               fontWeight: FontWeight.bold,
             ),
           ),

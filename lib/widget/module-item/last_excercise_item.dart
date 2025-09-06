@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class LastExerciseItem extends StatelessWidget {
@@ -11,8 +12,8 @@ class LastExerciseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 337,
-      height: 69,
+      width: 337.w,
+      height: 74.h,
       decoration: BoxDecoration(
         color: containerBgColor,
         borderRadius: BorderRadius.circular(15),
@@ -26,7 +27,7 @@ class LastExerciseItem extends StatelessWidget {
               "Environment",
               style: TextStyle(
                 color: textColor1,
-                fontSize: 16,
+                fontSize: 16.h,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -37,7 +38,7 @@ class LastExerciseItem extends StatelessWidget {
                   "Level:B1",
                   style: TextStyle(
                     color: textColor2,
-                    fontSize: 12,
+                    fontSize: 12.h,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -45,7 +46,7 @@ class LastExerciseItem extends StatelessWidget {
                   "5 min",
                   style: TextStyle(
                     color: textColor3,
-                    fontSize: 15,
+                    fontSize: 15.h,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

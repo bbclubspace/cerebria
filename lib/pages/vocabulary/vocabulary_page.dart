@@ -2,6 +2,7 @@ import 'package:cerebria/themes/app_colors.dart';
 import 'package:cerebria/widget/page_top_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widget/module-item/completed_item.dart';
 import '../../widget/module-item/create_ai_content_container.dart';
 import '../../widget/module-item/last_excercise_item.dart';
@@ -17,9 +18,9 @@ class VocabularyPage extends StatelessWidget {
       backgroundColor: colors.vocabulary.pageBgColor,
       body: Column(
         children: [
-          const SizedBox(height: 60),
+           SizedBox(height: 60.h),
           PageTopItem(colors: colors, pageName: "Vocabulary"),
-          const SizedBox(height: 20),
+           SizedBox(height: 20.h),
           CreateAiContentContainer(
             color1: colors.vocabulary.createContainerBgColor1,
             color2: colors.vocabulary.createContainerBgColor2,
@@ -27,11 +28,11 @@ class VocabularyPage extends StatelessWidget {
             textColor: colors.vocabulary.createContainerTextColor,
             text: "CREATE YOUR OWN LIST OR\n   USE A READY-MADE ONE",
           ),
-          const SizedBox(height: 25),
+           SizedBox(height: 25.h),
 
           //completed exercise
           TitleText(colors: colors, title: "Completed Exercise"),
-          const SizedBox(height: 10),
+           SizedBox(height: 10.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -41,14 +42,14 @@ class VocabularyPage extends StatelessWidget {
                 value: "20",
                 textColor: colors.vocabulary.itemTextColor,
               ),
-              const SizedBox(width: 10),
+               SizedBox(width: 10.h),
               CompletedItem(
                 color: colors.vocabulary.completedContainerBgColor2,
                 title: "Montly",
                 value: "50",
                 textColor: colors.vocabulary.itemTextColor,
               ),
-              const SizedBox(width: 10),
+               SizedBox(width: 10.h),
               CompletedItem(
                 color: colors.vocabulary.completedContainerBgColor3,
                 title: "All Times",
@@ -57,10 +58,10 @@ class VocabularyPage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 25),
+           SizedBox(height: 25.h),
           // last excercise
           TitleText(colors: colors, title: "Last Exercise"),
-          const SizedBox(height: 10),
+           SizedBox(height: 10.h),
           // ileride burası listview builder(veri tabanından gelen veri sayısı belli olmayacağı için) ile olacak
           // burada da text içeriklerini parametre olarak vermeyi ekleyip diğer sayfalarda kolaylık sağlayabilirsin
           // ekleyebilirsen ekle olmazsa ben eklerim
@@ -70,7 +71,7 @@ class VocabularyPage extends StatelessWidget {
             textColor2: colors.vocabulary.itemLevelTextColor,
             textColor3: colors.vocabulary.itemDurationTextColor,
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: 10.h),
           LastExerciseItem(
             containerBgColor: colors.vocabulary.lastExerciseContainerColor,
             textColor1: colors.vocabulary.itemTextColor,

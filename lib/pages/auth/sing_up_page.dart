@@ -1,5 +1,6 @@
 import 'package:cerebria/widget/button/alternatif_login_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../routes/routes.dart';
 import '../../themes/app_colors.dart';
 import '../../widget/button/app_back_button.dart';
@@ -39,41 +40,41 @@ class SignUpPage extends StatelessWidget {
                     children: [
                       AuthTitleText(colors: colors, title: "Sign Up"),
                       AuthTitleText(colors: colors, title: "Community"),
-                      const SizedBox(height: 40),
+                      SizedBox(height: 40.h),
                       AuthTextfield(
                         colors: colors,
                         iconPath: 'assets/auth-icon/person.png',
                         hintText: 'Name',
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       AuthTextfield(
                         colors: colors,
                         iconPath: 'assets/auth-icon/mail.png',
                         hintText: 'Email',
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       AuthTextfield(
                         colors: colors,
                         iconPath: 'assets/auth-icon/password.png',
                         hintText: 'Password',
                       ),
-                      const SizedBox(height: 40),
+                      SizedBox(height: 40.h),
                       AuthButton(
                         colors: colors,
                         onTap: () {
                           Navigator.pushReplacementNamed(context, Routes.home);
                         },
                       ),
-                      const SizedBox(height: 25),
+                      SizedBox(height: 25.h),
                       Text(
                         "or use social media",
                         style: TextStyle(
                           color: colors.auth.orContinueSocialButtonColor,
-                          fontSize: 20,
+                          fontSize: 20.h,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      SizedBox(height: 25.h),
                       // Google ile giriş butonu
                       AlternatifLoginButton(
                         colors: colors,
@@ -82,7 +83,7 @@ class SignUpPage extends StatelessWidget {
                         bgColor: colors.auth.googleSignInBgColor,
                         textColor: colors.auth.googleSignInTextColor,
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       // Apple ile giriş butonu
                       AlternatifLoginButton(
                         colors: colors,

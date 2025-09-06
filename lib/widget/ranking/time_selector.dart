@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TimeSelector extends StatelessWidget {
   final String value;
@@ -24,8 +25,8 @@ class TimeSelector extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 100,
-        height: 36,
+        width: 100.w,
+        height: 36.h,
         decoration: BoxDecoration(
           color: containerColor,
           borderRadius: BorderRadius.circular(15),
@@ -38,7 +39,7 @@ class TimeSelector extends StatelessWidget {
             value,
             style: TextStyle(
               color: textColor,
-              fontSize: 16,
+              fontSize: 16.h,
               fontWeight: FontWeight.bold,
             ),
           ),

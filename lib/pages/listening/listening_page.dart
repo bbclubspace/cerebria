@@ -2,6 +2,7 @@ import 'package:cerebria/themes/app_colors.dart';
 import 'package:cerebria/widget/page_top_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widget/module-item/completed_item.dart';
 import '../../widget/module-item/create_ai_content_container.dart';
 import '../../widget/module-item/last_excercise_item.dart';
@@ -17,9 +18,9 @@ class ListeningPage extends StatelessWidget {
       backgroundColor: colors.listening.pageBgColor,
       body: Column(
         children: [
-          const SizedBox(height: 60),
+          SizedBox(height: 60.h),
           PageTopItem(colors: colors, pageName: "Listening"),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için
             color1: colors.listening.createContainerBgColor1,
@@ -28,11 +29,11 @@ class ListeningPage extends StatelessWidget {
             textColor: colors.listening.createContainerTextColor,
             text: "START PRACTICING\n LISTENING WITH AI",
           ),
-          const SizedBox(height: 25),
+          SizedBox(height: 25.h),
 
           //completed exercise
           TitleText(colors: colors, title: "Completed Exercise"),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -42,14 +43,14 @@ class ListeningPage extends StatelessWidget {
                 value: "20",
                 textColor: colors.listening.itemTextColor,
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10.w),
               CompletedItem(
                 color: colors.listening.completedContainerBgColor2,
                 title: "Montly",
                 value: "50",
                 textColor: colors.listening.itemTextColor,
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10.w),
               CompletedItem(
                 color: colors.listening.completedContainerBgColor3,
                 title: "All Times",
@@ -58,10 +59,10 @@ class ListeningPage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 25),
+          SizedBox(height: 25.h),
           // last excercise
           TitleText(colors: colors, title: "Last Exercise"),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           // ileride burası listview builder(veri tabanından gelen veri sayısı belli olmayacağı için) ile olacak
           // burada da text içeriklerini parametre olarak vermeyi ekleyip diğer sayfalarda kolaylık sağlayabilirsin
           // ekleyebilirsen ekle olmazsa ben eklerim
@@ -71,7 +72,7 @@ class ListeningPage extends StatelessWidget {
             textColor2: colors.listening.itemLevelTextColor,
             textColor3: colors.listening.itemDurationTextColor,
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           LastExerciseItem(
             containerBgColor: colors.listening.lastExerciseContainerColor,
             textColor1: colors.listening.itemTextColor,

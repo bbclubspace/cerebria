@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../themes/app_colors.dart';
 
 class TopWidget extends StatelessWidget {
@@ -17,8 +17,8 @@ class TopWidget extends StatelessWidget {
         GestureDetector(
           onTap: onTapMenu,
           child: Container(
-            width: 40,
-            height: 40,
+            width: 40.w,
+            height: 40.h,
             // arkasını circle yapabilmek için
             decoration: BoxDecoration(
               shape: BoxShape.circle,
@@ -26,26 +26,26 @@ class TopWidget extends StatelessWidget {
             ),
             child: Image.asset(
               "assets/homepage-icon/menu.png",
-              width: 30,
-              height: 30,
+              width: 30.w,
+              height: 30.h,
             ),
           ),
         ),
-        const SizedBox(width: 100),
+         Spacer(),
         // uygulama ismi
         Text(
           "Cerebria",
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 24.h,
             fontWeight: FontWeight.bold,
             color: colors.home.appNameTextColor,
           ),
         ),
-        const SizedBox(width: 100),
+        Spacer(),
         // seçilen dil butonu
         Container(
-          width: 30,
-          height: 30,
+          width: 30.w,
+          height: 30.h,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: const DecorationImage(

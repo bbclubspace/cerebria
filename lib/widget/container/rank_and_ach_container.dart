@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../themes/app_colors.dart';
 
@@ -21,8 +22,8 @@ class RankAndAchContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110,
-      height: 120,
+      width: 100.w,
+      height: 120.h,
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(20),
@@ -33,17 +34,17 @@ class RankAndAchContainer extends StatelessWidget {
             title,
             style: TextStyle(
               color: colors.home.rankTextColor,
-              fontSize: 16,
+              fontSize: 16.h,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 5),
+           SizedBox(height: 5.h),
           Image.asset(iconPath),
           Text(
             value,
             style: TextStyle(
               color: colors.home.rankTextColor,
-              fontSize: 24,
+              fontSize: 24.h,
               fontWeight: FontWeight.bold,
             ),
           ),
