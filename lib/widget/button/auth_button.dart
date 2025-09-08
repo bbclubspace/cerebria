@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,7 +33,7 @@ class AuthButton extends StatelessWidget {
             "Continue",
             style: TextStyle(
               color: colors.auth.buttonTextColor,
-              fontSize: 20.h,
+              fontSize: AppFontSizes.s14,
               fontWeight: FontWeight.bold,
             ),
           ),

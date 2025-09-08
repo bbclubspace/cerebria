@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/material.dart';
 import 'package:cerebria/themes/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,19 +26,19 @@ class HomeGreeting extends StatelessWidget {
           "Hello $username",
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 20.h,
-            fontWeight: FontWeight.bold,
+            fontSize: AppFontSizes.s22,
+            fontWeight: FontWeight.w700,
           ),
         ),
-        const SizedBox(height: 5),
+         SizedBox(height: 5.h),
 
         // Alt başlık
         Text(
           subtitle,
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 12.h,
-            fontWeight: FontWeight.w700,
+            fontSize: AppFontSizes.s14,
+            fontWeight: FontWeight.w400,
           ),
           textAlign: TextAlign.center,
         ),
@@ -48,7 +49,7 @@ class HomeGreeting extends StatelessWidget {
           "Daily goal status: $dailyGoalStatus",
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 12.h,
+            fontSize: AppFontSizes.s14,
             fontWeight: FontWeight.w400,
           ),
         ),

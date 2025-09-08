@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,7 +14,7 @@ class LastExerciseItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 337.w,
-      height: 74.h,
+      height: 76.h,
       decoration: BoxDecoration(
         color: containerBgColor,
         borderRadius: BorderRadius.circular(15),
@@ -27,7 +28,7 @@ class LastExerciseItem extends StatelessWidget {
               "Environment",
               style: TextStyle(
                 color: textColor1,
-                fontSize: 16.h,
+                fontSize: AppFontSizes.s14,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -38,7 +39,7 @@ class LastExerciseItem extends StatelessWidget {
                   "Level:B1",
                   style: TextStyle(
                     color: textColor2,
-                    fontSize: 12.h,
+                    fontSize: AppFontSizes.s12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -46,7 +47,7 @@ class LastExerciseItem extends StatelessWidget {
                   "5 min",
                   style: TextStyle(
                     color: textColor3,
-                    fontSize: 15.h,
+                    fontSize: AppFontSizes.s12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

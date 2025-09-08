@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,7 +58,7 @@ class OtherRankItem extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(width: 12),
+          SizedBox(width: 12.w),
 
           // Avatar
           Container(
@@ -71,7 +72,7 @@ class OtherRankItem extends StatelessWidget {
             child: const Icon(Icons.person, color: Colors.white),
           ),
 
-          const SizedBox(width: 12),
+          SizedBox(width: 12.w),
 
           // User info
           Expanded(
@@ -80,22 +81,22 @@ class OtherRankItem extends StatelessWidget {
               children: [
                 Text(
                   user.name,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: AppFontSizes.s14,
                   ),
                 ),
-                const SizedBox(height: 2),
+                SizedBox(height: 2.h),
                 Row(
                   children: [
                     Text(
                       "Level ${user.level}",
                       style: TextStyle(
                         color: colors.rankLevelTextColor,
-                        fontSize: 13,
+                        fontSize: AppFontSizes.s12,
                       ),
                     ),
-                    const SizedBox(width: 4),
+                    SizedBox(width: 4.w),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 6,
@@ -109,7 +110,7 @@ class OtherRankItem extends StatelessWidget {
                         user.statusLevel,
                         style: TextStyle(
                           color: colors.rankStatusTextColor,
-                          fontSize: 12,
+                          fontSize: AppFontSizes.s12,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

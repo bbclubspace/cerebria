@@ -1,6 +1,5 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../themes/app_colors.dart';
 
 class AuthTitleText extends StatelessWidget {
@@ -19,7 +18,7 @@ class AuthTitleText extends StatelessWidget {
       title,
       style: TextStyle(
         color: colors.auth.titleTextColor,
-        fontSize: 30.h,
+        fontSize: AppFontSizes.s20,
         fontWeight: FontWeight.w900,
       ),
     );

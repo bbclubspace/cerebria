@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +20,7 @@ class PageTopItem extends StatelessWidget {
         Text(
           pageName,
           style: TextStyle(
-            fontSize: 30.h,
+            fontSize: AppFontSizes.s16,
             fontWeight: FontWeight.w400,
             color: colors.module.titleTextColor,
           ),

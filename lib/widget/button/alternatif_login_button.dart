@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../themes/app_colors.dart';
@@ -36,9 +37,8 @@ class AlternatifLoginButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(iconPath,width: 50.h,height: 50.w,),
-          SizedBox(width: 10.w,),
-          Text(buttonText,style: TextStyle(color: textColor,fontSize: 17.h,fontWeight: FontWeight.bold),)
+          Image.asset(iconPath,width: 50.w,height: 50.h,),
+          Text(buttonText,style: TextStyle(color: textColor,fontSize: AppFontSizes.s14,fontWeight: FontWeight.bold),),
         ],
       ),
     );

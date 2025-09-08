@@ -1,5 +1,5 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
-
 import '../../themes/app_colors.dart';
 
 class TitleText extends StatelessWidget {
@@ -18,8 +18,8 @@ class TitleText extends StatelessWidget {
           title,
           style: TextStyle(
             color: colors.reading.contentTitleTextColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
+            fontWeight: FontWeight.w500,
+            fontSize: AppFontSizes.s16,
           ),
         ),
       ),

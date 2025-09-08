@@ -1,5 +1,6 @@
 import 'package:cerebria/constants/module_item.dart';
 import 'package:cerebria/themes/app_colors.dart';
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,13 +57,14 @@ class ModulePage extends StatelessWidget {
                             width: 35.w,
                             height: 35.h,
                             fit: BoxFit.contain,
+                            alignment: Alignment.topLeft,
                           ),
                           SizedBox(height: 8.h),
                           Text(
                             item.name,
                             style: TextStyle(
                               color: colors.module.moduleContainerTextColor,
-                              fontSize: 20.h,
+                              fontSize: AppFontSizes.s12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

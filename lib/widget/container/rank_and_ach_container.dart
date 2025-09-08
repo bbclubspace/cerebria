@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,29 +24,28 @@ class RankAndAchContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 100.w,
-      height: 120.h,
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             title,
             style: TextStyle(
               color: colors.home.rankTextColor,
-              fontSize: 16.h,
-              fontWeight: FontWeight.bold,
+              fontSize: AppFontSizes.s12,
+              fontWeight: FontWeight.w500,
             ),
           ),
-           SizedBox(height: 5.h),
           Image.asset(iconPath),
           Text(
             value,
             style: TextStyle(
               color: colors.home.rankTextColor,
-              fontSize: 24.h,
-              fontWeight: FontWeight.bold,
+              fontSize: AppFontSizes.s14,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +21,7 @@ class CreateAiContentContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 355.w,
+      width: 330.w,
       height: 127.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -36,7 +37,7 @@ class CreateAiContentContainer extends StatelessWidget {
           text,
           style: TextStyle(
             color: textColor,
-            fontSize: 22.h,
+            fontSize: AppFontSizes.s14,
             fontWeight: FontWeight.bold,
           ),
         ),

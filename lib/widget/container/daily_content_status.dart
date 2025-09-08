@@ -1,6 +1,5 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../themes/app_colors.dart';
 
 class DailyContentStatus extends StatelessWidget {
@@ -22,12 +21,12 @@ class DailyContentStatus extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(iconPath),
+                Image.asset(iconPath),
         Text(
           title,
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 12.h,
+            fontSize: AppFontSizes.s12,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -35,7 +34,7 @@ class DailyContentStatus extends StatelessWidget {
           value,
           style: TextStyle(
             color: colors.home.mainContainerTextColor,
-            fontSize: 20.h,
+            fontSize: AppFontSizes.s12,
             fontWeight: FontWeight.bold,
           ),
         ),

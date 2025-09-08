@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:cerebria/widget/button/alternatif_login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,8 +34,6 @@ class SignUpPage extends StatelessWidget {
               ),
               // Kalan içeriği ortala
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -70,7 +69,7 @@ class SignUpPage extends StatelessWidget {
                         "or use social media",
                         style: TextStyle(
                           color: colors.auth.orContinueSocialButtonColor,
-                          fontSize: 20.h,
+                          fontSize: AppFontSizes.s12,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -94,7 +93,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
+
               ),
             ],
           ),

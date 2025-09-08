@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,14 +35,14 @@ class TopRankCard extends StatelessWidget {
           child: Image.asset(avatarAsset, fit: BoxFit.cover),
         ),
 
-        const SizedBox(height: 8),
-        Text(user.name, style: TextStyle(color: colors.topRankNameTextColor)),
+        SizedBox(height: 8.h),
+        Text(user.name, style: TextStyle(color: colors.topRankNameTextColor,fontSize: AppFontSizes.s16)),
         Text(
           user.point.toString(),
           style: TextStyle(
             color: colors.topRankTextColor,
             fontWeight: FontWeight.bold,
-            fontSize: 20.h,
+            fontSize: AppFontSizes.s16,
           ),
         ),
         Container(

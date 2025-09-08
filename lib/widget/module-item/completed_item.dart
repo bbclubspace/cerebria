@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +32,7 @@ class CompletedItem extends StatelessWidget {
             title,
             style: TextStyle(
               color: textColor,
-              fontSize: 16.h,
+              fontSize: AppFontSizes.s14,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -39,7 +40,7 @@ class CompletedItem extends StatelessWidget {
             value,
             style: TextStyle(
               color: textColor,
-              fontSize: 20.h,
+              fontSize: AppFontSizes.s12,
               fontWeight: FontWeight.w300,
             ),
           ),

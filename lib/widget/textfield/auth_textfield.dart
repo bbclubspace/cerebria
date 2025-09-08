@@ -1,3 +1,4 @@
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +26,7 @@ class AuthTextfield extends StatelessWidget {
       height: 50.h,
       decoration: BoxDecoration(
         color: colors.auth.textFieldBgColor,
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(90),
         border: Border.all(color: colors.auth.textFieldStrokeColor),
       ),
       child: TextField(
@@ -41,14 +42,10 @@ class AuthTextfield extends StatelessWidget {
             ),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(color: colors.auth.textFieldStrokeColor,fontSize: 15.h),
+          hintStyle: TextStyle(color: colors.auth.textFieldStrokeColor,fontSize:AppFontSizes.s14),
           border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 15,
-          ),
         ),
-        style: TextStyle(color: colors.auth.titleTextColor),
+        style: TextStyle(color: colors.auth.titleTextColor,fontSize: AppFontSizes.s14,),
       ),
     );
   }

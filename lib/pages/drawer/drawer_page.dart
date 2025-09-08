@@ -1,5 +1,6 @@
 import 'package:cerebria/constants/drawer_item.dart';
 import 'package:cerebria/themes/app_colors.dart';
+import 'package:cerebria/utils/font_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -76,12 +77,13 @@ class NewRow extends StatelessWidget {
             height: 50.h,
             child: SvgPicture.asset(iconPath, fit: BoxFit.contain),
           ),
-           SizedBox(width: 20.w),
+           SizedBox(width: 5.w),
           Text(
             text,
             style: TextStyle(
               color: colors.drawer.textColor,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
+              fontSize: AppFontSizes.s12
             ),
           ),
         ],
