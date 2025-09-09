@@ -1,22 +1,22 @@
-import 'package:cerebria/pages/home/main_page.dart';
-import 'package:cerebria/pages/module/module_page.dart';
-import 'package:cerebria/pages/ranking/ranking_page.dart';
-import 'package:cerebria/pages/reading/reading_page.dart';
-import 'package:cerebria/pages/report/report_page.dart';
-import 'package:cerebria/pages/vocabulary/vocabulary_page.dart';
-import 'package:cerebria/pages/listening/listening_page.dart';
-import 'package:cerebria/pages/grammer/grammer_page.dart';
-import 'package:cerebria/pages/speaking/speaking_page.dart';
-import 'package:cerebria/pages/exam/exam_page.dart';
-import 'package:cerebria/routes/routes.dart';
-import 'package:cerebria/pages/auth/login_page.dart';
-import 'package:cerebria/pages/auth/sing_up_page.dart';
+import 'package:cerebria/features/home/presentation/pages/main_page.dart';
+import 'package:cerebria/features/module/presentation/pages/module_page.dart';
+import 'package:cerebria/features/ranking/presentation/pages/ranking_page.dart';
+import 'package:cerebria/features/module/presentation/pages/reading/reading_page.dart';
+import 'package:cerebria/features/report/presentation/pages/report_page.dart';
+import 'package:cerebria/features/module/presentation/pages/vocabulary/vocabulary_page.dart';
+import 'package:cerebria/features/module/presentation/pages/listening/listening_page.dart';
+import 'package:cerebria/features/module/presentation/pages/grammer/grammer_page.dart';
+import 'package:cerebria/features/module/presentation/pages/speaking/speaking_page.dart';
+import 'package:cerebria/features/module/presentation/pages/exam/exam_page.dart';
+import 'package:cerebria/core/routes/routes.dart';
+import 'package:cerebria/features/auth/presentation/pages/login_page.dart';
+import 'package:cerebria/features/auth/presentation/pages/sing_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'cubit/report/report_cubit.dart';
-import 'services/report_services.dart';
+import 'features/report/logic/cubit/report_cubit.dart';
+import 'features/report/data/services/report_services.dart';
 
 void main() {
   runApp(
