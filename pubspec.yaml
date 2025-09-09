@@ -7,10 +7,15 @@ environment:
   sdk: ^3.8.1
 
 dependencies:
+  bloc: ^9.0.0
+  equatable: ^2.0.7
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_screenutil: ^5.9.3
   flutter_svg: ^1.1.6
   jovial_svg: ^1.1.27
+  syncfusion_flutter_calendar: ^31.1.17
 
 dev_dependencies:
   flutter_test:
