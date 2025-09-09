@@ -39,17 +39,17 @@ class _DrawerPageState extends State<DrawerPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
              SizedBox(height: 100.h),
-            NewRow(text: 'Home page', iconPath: drawerIcons['home']!),
+            NewRow(text: 'Home page', iconPath: drawerIcons['home']!,route: Routes.home,),
              SizedBox(height: 20.h),
-            NewRow(text: 'Report', iconPath: drawerIcons['report']!),
+            NewRow(text: 'Report', iconPath: drawerIcons['report']!,route: Routes.report_page,),
              SizedBox(height: 20.h),
-            NewRow(text: 'Ranking', iconPath: drawerIcons['ranking']!),
+            NewRow(text: 'Ranking', iconPath: drawerIcons['ranking']!,route: Routes.ranking_page,),
              SizedBox(height: 20.h),
-            NewRow(text: 'Messaging', iconPath: drawerIcons['messaging']!),
+            NewRow(text: 'Messaging', iconPath: drawerIcons['messaging']!,route: Routes.home,),
              SizedBox(height: 20.h),
-            NewRow(text: 'Profile', iconPath: drawerIcons['profile']!),
+            NewRow(text: 'Profile', iconPath: drawerIcons['profile']!,route: Routes.home,),
              SizedBox(height: 20.h),
-            NewRow(text: 'Logout', iconPath: drawerIcons['logout']!),
+            NewRow(text: 'Logout', iconPath: drawerIcons['logout']!,route: Routes.home,),
           ],
         ),
       ),
@@ -60,15 +60,16 @@ class _DrawerPageState extends State<DrawerPage> {
 class NewRow extends StatelessWidget {
   final String iconPath;
   final String text;
+  final route;
 
-  const NewRow({super.key, required this.iconPath, required this.text});
+  const NewRow({super.key, required this.iconPath, required this.text, this.route});
 
   @override
   Widget build(BuildContext context) {
     final colors = AppColors(isDarkMode: false);
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, Routes.ranking_page);
+        Navigator.pushNamed(context, route);
       },
       child: Row(
         children: [

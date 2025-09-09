@@ -2,6 +2,7 @@ import 'package:cerebria/pages/home/main_page.dart';
 import 'package:cerebria/pages/module/module_page.dart';
 import 'package:cerebria/pages/ranking/ranking_page.dart';
 import 'package:cerebria/pages/reading/reading_page.dart';
+import 'package:cerebria/pages/report/report_page.dart';
 import 'package:cerebria/pages/vocabulary/vocabulary_page.dart';
 import 'package:cerebria/pages/listening/listening_page.dart';
 import 'package:cerebria/pages/grammer/grammer_page.dart';
@@ -11,7 +12,11 @@ import 'package:cerebria/routes/routes.dart';
 import 'package:cerebria/pages/auth/login_page.dart';
 import 'package:cerebria/pages/auth/sing_up_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'cubit/report/report_cubit.dart';
+import 'services/report_services.dart';
 
 void main() {
   runApp(
@@ -19,7 +24,17 @@ void main() {
       splitScreenMode: true,
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      builder: (context, child) => MainApp(),
+      builder: (context, child) {
+        return MultiBlocProvider(
+          providers: [
+            // block yapısının başlatılması için burada eklenmesi gerekiyor
+            BlocProvider<ReportsCubit>(
+              create: (_) => ReportsCubit(ReportServices())..loadReports(),
+            ),
+          ],
+          child: const MainApp(),
+        );
+      },
     ),
   );
 }
@@ -50,6 +65,7 @@ class MainApp extends StatelessWidget {
         Routes.speaking_page: (context) => const SpeakingPage(),
         Routes.exam_page: (context) => const ExamPage(),
         Routes.ranking_page:(context) => const RankingPage(),
+        Routes.report_page:(context) => const ReportPage(),
       },
     );
   }

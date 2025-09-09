@@ -11,4 +11,5 @@ class Routes {
   static const String speaking_page = "/speaking_page";
   static const String exam_page = "/exam_page";
   static const String ranking_page ="/ranking_page";
+  static const String report_page = "/report_page";
 }
