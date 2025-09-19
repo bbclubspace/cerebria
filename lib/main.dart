@@ -4,6 +4,8 @@ import 'package:cerebria/features/ranking/presentation/pages/ranking_page.dart';
 import 'package:cerebria/features/module/presentation/pages/reading/reading_page.dart';
 import 'package:cerebria/features/report/presentation/pages/report_page.dart';
 import 'package:cerebria/features/module/presentation/pages/vocabulary/vocabulary_page.dart';
+import 'package:cerebria/features/module/presentation/pages/vocabulary/vocabulary_list_page.dart';
+
 import 'package:cerebria/features/module/presentation/pages/listening/listening_page.dart';
 import 'package:cerebria/features/module/presentation/pages/grammer/grammer_page.dart';
 import 'package:cerebria/features/module/presentation/pages/speaking/speaking_page.dart';
@@ -45,7 +47,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      scrollBehavior: ScrollConfiguration.of(
+        context,
+      ).copyWith(scrollbars: false),
       // uygulama çalışında debug diye bir flag oluyor ekranda onu kapadım
       debugShowCheckedModeBanner: false,
       // başlangıç olarak logini belirledim routes sınıfı üzerinden
@@ -59,13 +63,15 @@ class MainApp extends StatelessWidget {
 
         Routes.module_page: (context) => const ModulePage(),
         Routes.reading_page: (context) => const ReadingPage(),
+        // Vocabulary Page
         Routes.vocabulary_page: (context) => const VocabularyPage(),
+        Routes.vocabulary_list_page: (context) => const VocabularyListPage(),
         Routes.listening_page: (context) => const ListeningPage(),
         Routes.grammer_page: (context) => const GrammerPage(),
         Routes.speaking_page: (context) => const SpeakingPage(),
         Routes.exam_page: (context) => const ExamPage(),
-        Routes.ranking_page:(context) => const RankingPage(),
-        Routes.report_page:(context) => const ReportPage(),
+        Routes.ranking_page: (context) => const RankingPage(),
+        Routes.report_page: (context) => const ReportPage(),
       },
     );
   }
