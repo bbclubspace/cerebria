@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cerebria/core/themes/vocabulary/vocabulary_list_color.dart';
 import '../../widgets/word_list_item.dart';
+import 'create_list_dialog.dart';
+import 'word_list_detail_page.dart';
 
 class VocabularyListPage extends StatefulWidget {
   const VocabularyListPage({Key? key}) : super(key: key);
@@ -17,6 +19,10 @@ class _VocabularyListPage extends State<VocabularyListPage> {
   // Aktif sekmeyi takip etmek için değişken
   String _activeTab = 'ready'; // 'ready' veya 'my'
   final color = VocabularyListColors(isDarkMode: false);
+
+  // Özel listeler için liste
+  List<Map<String, dynamic>> _myLists = [];
+
   @override
   Widget build(BuildContext context) {
     final appColors = AppColors(isDarkMode: false);
@@ -38,12 +44,23 @@ class _VocabularyListPage extends State<VocabularyListPage> {
           ),
         ],
       ),
+      // List add button
       floatingActionButton: Material(
         color: Colors.transparent, // arka planı kaldır
         child: InkWell(
           borderRadius: BorderRadius.circular(100), // istersen dairesel ripple
-          onTap: () {
-            print("Icona tıklandı!");
+          onTap: () async {
+            // Dialog'u aç ve sonuç bekle
+            final result = await CreateListDialog.show(context);
+
+            // Eğer bir liste oluşturulduysa, listemi ekle
+            if (result != null) {
+              setState(() {
+                _myLists.add(result);
+                // Listeyi oluşturduktan sonra "My Lists" sekmesine geç
+                _activeTab = 'my';
+              });
+            }
           },
           child: Image.asset(
             "assets/module-icon/add-icon.png",
@@ -114,8 +131,6 @@ class _VocabularyListPage extends State<VocabularyListPage> {
   }
 
   // Hazır Listeleri Gösteren Widget
-  // _buildReadyLists() metodu
-
   Widget _buildReadyLists() {
     final List<Map<String, dynamic>> readyLists = [
       {
@@ -178,6 +193,15 @@ class _VocabularyListPage extends State<VocabularyListPage> {
           level: item['level']!,
           progressPercentage: item['progressPercentage']!,
           progressColor: item['progressColor']!,
+          onTap: () {
+            // Detail sayfasına git
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => WordListDetailPage(listData: item),
+              ),
+            );
+          },
         );
       },
     );
@@ -185,6 +209,55 @@ class _VocabularyListPage extends State<VocabularyListPage> {
 
   // Benim Listelerimi Gösteren Widget
   Widget _buildMyLists() {
-    return const Center(child: Text('Benim Listelerim burada gösterilecek.'));
+    if (_myLists.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.list_alt, size: 64.w, color: color.listAltIconColor),
+            SizedBox(height: 16.h),
+            Text(
+              'No custom lists yet',
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w600,
+                color: color.noMyListTextColor,
+              ),
+            ),
+            SizedBox(height: 8.h),
+            Text(
+              'Tap the + button to create your first list',
+              style: TextStyle(fontSize: 14.sp, color: color.noMyListTextColor),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return ListView.builder(
+      padding: EdgeInsets.symmetric(vertical: 10.h),
+      itemCount: _myLists.length,
+      itemBuilder: (context, index) {
+        final item = _myLists[index];
+        return WordListItem(
+          title: item['title']!,
+          subtitle: item['subtitle']!,
+          category: item['category']!,
+          wordCount: item['wordCount']!,
+          level: item['level']!,
+          progressPercentage: item['progressPercentage']!,
+          progressColor: item['progressColor']!,
+          onTap: () {
+            // Detail sayfasına git
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => WordListDetailPage(listData: item),
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }

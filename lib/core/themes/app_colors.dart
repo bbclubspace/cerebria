@@ -7,6 +7,8 @@ import 'package:cerebria/core/themes/report/report_colors.dart';
 import 'package:cerebria/core/themes/speaking/speaking_colors.dart';
 import 'package:cerebria/core/themes/vocabulary/vocabulary_colors.dart';
 import 'package:cerebria/core/themes/vocabulary/vocabulary_list_color.dart';
+import 'package:cerebria/core/themes/vocabulary/word_list_detail_color.dart';
+
 import 'auth/auth_colors.dart';
 import 'drawer/drawer_colors.dart';
 import 'home/home_colors.dart';
@@ -18,14 +20,17 @@ class AppColors {
   final DrawerColors drawer;
   final ModuleColors module;
   final ReadingColors reading;
+  // Vocabulary Colors
   final VocabularyColors vocabulary;
+  final VocabularyListColors vocabularyList;
+  final WordListDetailColor wordListDetail;
+
   final ListeningColors listening;
   final GrammerColors grammer;
   final SpeakingColors speaking;
   final ExamColors exam;
   final RankingColors ranking;
   final ReportColors report;
-  final VocabularyListColors vocabularyList;
 
   AppColors({required bool isDarkMode})
     : auth = AuthColors(isDarkMode: isDarkMode),
@@ -33,8 +38,11 @@ class AppColors {
       drawer = DrawerColors(isDarkMode: isDarkMode),
       module = ModuleColors(isDarkMode: isDarkMode),
       reading = ReadingColors(isDarkMode: isDarkMode),
+      // Vocabulary Colors
       vocabulary = VocabularyColors(isDarkMode: isDarkMode),
       vocabularyList = VocabularyListColors(isDarkMode: isDarkMode),
+      wordListDetail = WordListDetailColor(isDarkMode: isDarkMode),
+
       listening = ListeningColors(isDarkMode: isDarkMode),
       grammer = GrammerColors(isDarkMode: isDarkMode),
       speaking = SpeakingColors(isDarkMode: isDarkMode),

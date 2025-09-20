@@ -1,3 +1,4 @@
+import 'package:cerebria/core/constants/module_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cerebria/core/themes/app_colors.dart';
@@ -10,6 +11,7 @@ class WordListItem extends StatelessWidget {
   final String level;
   final int progressPercentage;
   final Color progressColor;
+  final VoidCallback? onTap; // Tıklama callback'i eklendi
 
   const WordListItem({
     Key? key,
@@ -20,124 +22,162 @@ class WordListItem extends StatelessWidget {
     required this.level,
     required this.progressPercentage,
     required this.progressColor,
+    this.onTap, // Optional callback
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final appColors = AppColors(isDarkMode: false);
-
-    Color levelColor;
-    if (level.toLowerCase() == 'beginner') {
-      levelColor = appColors.vocabularyList.beginnerLevelColor;
-    } else if (level.toLowerCase() == 'intermediate') {
-      levelColor = appColors.vocabularyList.intermediateLevelColor;
-    } else {
-      levelColor = appColors.vocabularyList.advancedLevelColor;
-    }
-
+    final colors = AppColors(isDarkMode: false);
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
-      decoration: BoxDecoration(
-        color: appColors.vocabularyList.cardBgColor,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: appColors.vocabularyList.cardBoxShadowColor,
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        // Hizalamayı daha esnek hale getirmek için kaldırdık
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Sol Kısım: Dikey Seviye Şeridi
-          Container(
-            width: 30.w,
-            padding: EdgeInsets.symmetric(vertical: 25.h),
-            decoration: BoxDecoration(
-              color: levelColor,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-              ),
-            ),
-            child: RotatedBox(
-              quarterTurns: 3,
-              child: Center(
-                // Metni dikey olarak ortalamak için Center ekledik
-                child: Text(
-                  level
-                      .toUpperCase(), // Daha dikkat çekici olması için büyük harf yapabiliriz
+      margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
+      child: Material(
+        color: colors.vocabularyList.cardBgColor,
+        borderRadius: BorderRadius.circular(16.r),
+        elevation: 2,
+        shadowColor: colors.vocabularyList.cardBoxShadowColor,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16.r),
+          onTap: onTap, // Tıklama işlevi eklendi
+          child: Padding(
+            padding: EdgeInsets.all(16.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title and Category Row
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                          color: colors.vocabularyList.titleTextColor,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 12.w,
+                        vertical: 4.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: progressColor.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      child: Text(
+                        category,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                          color: progressColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 8.h),
+
+                // Subtitle
+                Text(
+                  subtitle,
                   style: TextStyle(
-                    color: appColors.vocabularyList.levelTextColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12.h,
+                    fontSize: 14.sp,
+                    color: colors.vocabularyList.subtitleTextColor,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+
+                SizedBox(height: 16.h),
+
+                // Stats Row
+                Row(
+                  children: [
+                    // Word Count
+                    _buildStatItem(
+                      icon: Icons.book_outlined,
+                      value: '$wordCount words',
+                      color: colors.vocabularyList.cardWordCountTextColor,
+                    ),
+
+                    SizedBox(width: 20.w),
+
+                    // Level
+                    _buildStatItem(
+                      icon: Icons.signal_cellular_alt,
+                      value: level,
+                      color: _getLevelColor(level),
+                    ),
+
+                    const Spacer(),
+
+                    // Progress Percentage
+                    Text(
+                      '$progressPercentage%',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                        color: progressColor,
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 12.h),
+
+                // Progress Bar
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4.r),
+                  child: LinearProgressIndicator(
+                    value: progressPercentage / 100.0,
+                    backgroundColor: colors.vocabularyList.progressBarBgColor,
+                    valueColor: AlwaysStoppedAnimation<Color>(progressColor),
+                    minHeight: 6.h,
                   ),
                 ),
-              ),
+              ],
             ),
           ),
-
-          // Kartın Geri Kalan İçeriği
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(12.w),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              title,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16.w,
-                                color: appColors.vocabularyList.titleTextColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.h),
-                        Text(
-                          '$category • $wordCount kelime',
-                          style: TextStyle(
-                            color: appColors.vocabularyList.categoryTextColor,
-                            fontSize: 13.w,
-                          ),
-                        ),
-                        SizedBox(height: 5.h),
-                        Text(
-                          subtitle,
-                          style: TextStyle(
-                            color: appColors.vocabularyList.subtitleTextColor,
-                            fontSize: 14.w,
-                          ),
-                        ),
-                        SizedBox(height: 10.h),
-                        LinearProgressIndicator(
-                          value: progressPercentage / 100,
-                          backgroundColor:
-                              appColors.vocabularyList.progressBarBgColor,
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            progressColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
+  }
+
+  Widget _buildStatItem({
+    required IconData icon,
+    required String value,
+    required Color color,
+  }) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 16.w, color: color),
+        SizedBox(width: 4.w),
+        Text(
+          value,
+          style: TextStyle(
+            fontSize: 12.sp,
+            color: colors.vocabularyList.subtitleTextColor,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Color _getLevelColor(String level) {
+    switch (level.toLowerCase()) {
+      case 'beginner':
+        return colors.vocabularyList.beginnerLevelColor;
+      case 'intermediate':
+        return colors.vocabularyList.intermediateLevelColor;
+      case 'advanced':
+        return colors.vocabularyList.advancedLevelColor;
+      default:
+        return colors.vocabularyList.defaultLevelColor;
+    }
   }
 }

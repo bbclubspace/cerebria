@@ -66,6 +66,7 @@ class MainApp extends StatelessWidget {
         // Vocabulary Page
         Routes.vocabulary_page: (context) => const VocabularyPage(),
         Routes.vocabulary_list_page: (context) => const VocabularyListPage(),
+
         Routes.listening_page: (context) => const ListeningPage(),
         Routes.grammer_page: (context) => const GrammerPage(),
         Routes.speaking_page: (context) => const SpeakingPage(),
