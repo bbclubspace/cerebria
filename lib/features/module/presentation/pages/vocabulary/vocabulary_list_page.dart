@@ -7,6 +7,8 @@ import 'package:cerebria/core/themes/vocabulary/vocabulary_list_color.dart';
 import '../../widgets/word_list_item.dart';
 import 'create_list_dialog.dart';
 import 'word_list_detail_page.dart';
+import '../../../data/model/list_item.dart';
+import '../../../../../core/constants/module/vocabulary/list_item.dart';
 
 class VocabularyListPage extends StatefulWidget {
   const VocabularyListPage({Key? key}) : super(key: key);
@@ -16,12 +18,11 @@ class VocabularyListPage extends StatefulWidget {
 }
 
 class _VocabularyListPage extends State<VocabularyListPage> {
-  // Aktif sekmeyi takip etmek için değişken
   String _activeTab = 'ready'; // 'ready' veya 'my'
   final color = VocabularyListColors(isDarkMode: false);
 
-  // Özel listeler için liste
-  List<Map<String, dynamic>> _myLists = [];
+  // Özel listeler (model kullanıyoruz artık)
+  List<ListItem> _myLists = [];
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +37,10 @@ class _VocabularyListPage extends State<VocabularyListPage> {
           PageTopItem(colors: appColors, pageName: "Word Lists"),
           SizedBox(height: 16.h),
 
-          // Özel Sekme Kontrolü (Custom Tab Bar)
+          // Tab bar
           _buildTabBar(),
-          // Dinamik içerik alanı
+
+          // Dinamik içerik
           Expanded(
             child: _activeTab == 'ready' ? _buildReadyLists() : _buildMyLists(),
           ),
@@ -46,18 +48,25 @@ class _VocabularyListPage extends State<VocabularyListPage> {
       ),
       // List add button
       floatingActionButton: Material(
-        color: Colors.transparent, // arka planı kaldır
+        color: Colors.transparent,
         child: InkWell(
-          borderRadius: BorderRadius.circular(100), // istersen dairesel ripple
+          borderRadius: BorderRadius.circular(100),
           onTap: () async {
-            // Dialog'u aç ve sonuç bekle
             final result = await CreateListDialog.show(context);
 
-            // Eğer bir liste oluşturulduysa, listemi ekle
             if (result != null) {
               setState(() {
-                _myLists.add(result);
-                // Listeyi oluşturduktan sonra "My Lists" sekmesine geç
+                _myLists.add(
+                  ListItem(
+                    title: result['title'] ?? '',
+                    subtitle: result['subtitle'] ?? '',
+                    category: result['category'] ?? '',
+                    wordCount: result['wordCount'] ?? 0,
+                    level: result['level'] ?? 'Beginner',
+                    progressPercentage: result['progressPercentage'] ?? 0,
+                    progressColor: result['progressColor'] ?? Colors.blue,
+                  ),
+                );
                 _activeTab = 'my';
               });
             }
@@ -72,7 +81,6 @@ class _VocabularyListPage extends State<VocabularyListPage> {
     );
   }
 
-  // Sekme Çubuğunu Oluşturan Metot
   Widget _buildTabBar() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -86,24 +94,17 @@ class _VocabularyListPage extends State<VocabularyListPage> {
     );
   }
 
-  // Sekme Düğmelerini Oluşturan Metot
   Widget _buildTabButton(String text, String tabName) {
     final bool isActive = _activeTab == tabName;
-
-    // Renkleri tab adına göre seçelim
     Color bgColor;
     Color fgColor;
 
     if (tabName == 'ready') {
       bgColor = isActive ? color.readyAktifColor : color.readyPasifColor;
-      fgColor = isActive
-          ? color.readyPasifColor
-          : color.readyAktifColor; // Örnek olarak zıt renk
+      fgColor = isActive ? color.readyPasifColor : color.readyAktifColor;
     } else {
       bgColor = isActive ? color.myAktifColor : color.myPasifColor;
-      fgColor = isActive
-          ? color.myPasifColor
-          : color.myAktifColor; // Örnek olarak zıt renk
+      fgColor = isActive ? color.myPasifColor : color.myAktifColor;
     }
 
     return ElevatedButton(
@@ -121,80 +122,27 @@ class _VocabularyListPage extends State<VocabularyListPage> {
       ),
       child: Text(
         text,
-        // Buraya TextStyle ekliyoruz
-        style: TextStyle(
-          fontSize: 15.0.h, // İstediğiniz yazı boyutunu buraya yazın
-          fontWeight: FontWeight.bold, // İsteğe bağlı
-        ),
+        style: TextStyle(fontSize: 15.0.h, fontWeight: FontWeight.bold),
       ),
     );
   }
 
-  // Hazır Listeleri Gösteren Widget
+  // Hazır listeler
   Widget _buildReadyLists() {
-    final List<Map<String, dynamic>> readyLists = [
-      {
-        'title': 'Essential Verbs',
-        'subtitle': 'Günlük hayatta en çok kullanılan fiiller',
-        'category': 'Verbs',
-        'wordCount': 150,
-        'level': 'Beginner',
-        'progressPercentage': 65,
-        'progressColor': Colors.blue,
-      },
-      {
-        'title': 'Common Nouns',
-        'subtitle': 'Temel isim kelimeleri',
-        'category': 'Nouns',
-        'wordCount': 200,
-        'level': 'Beginner',
-        'progressPercentage': 30,
-        'progressColor': Colors.green,
-      },
-      {
-        'title': 'Technology Terms',
-        'subtitle': 'Teknoloji dünyasının temel terimleri',
-        'category': 'Technology',
-        'wordCount': 120,
-        'level': 'Intermediate',
-        'progressPercentage': 0,
-        'progressColor': Colors.orange,
-      },
-      {
-        'title': 'Business English',
-        'subtitle': 'İş hayatında kullanılan kelimeler',
-        'category': 'Business',
-        'wordCount': 180,
-        'level': 'Advanced',
-        'progressPercentage': 15,
-        'progressColor': Colors.deepOrange,
-      },
-      {
-        'title': 'Travel Vocabulary',
-        'subtitle': 'Seyahat için gerekli kelimeler',
-        'category': 'Travel',
-        'wordCount': 90,
-        'level': 'Beginner',
-        'progressPercentage': 80,
-        'progressColor': Colors.pink,
-      },
-    ];
-
     return ListView.builder(
       padding: EdgeInsets.symmetric(vertical: 10.h),
-      itemCount: readyLists.length,
+      itemCount: vocabularyLists.length,
       itemBuilder: (context, index) {
-        final item = readyLists[index];
+        final item = vocabularyLists[index];
         return WordListItem(
-          title: item['title']!,
-          subtitle: item['subtitle']!,
-          category: item['category']!,
-          wordCount: item['wordCount']!,
-          level: item['level']!,
-          progressPercentage: item['progressPercentage']!,
-          progressColor: item['progressColor']!,
+          title: item.title,
+          subtitle: item.subtitle,
+          category: item.category,
+          wordCount: item.wordCount,
+          level: item.level,
+          progressPercentage: item.progressPercentage,
+          progressColor: item.progressColor,
           onTap: () {
-            // Detail sayfasına git
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -207,7 +155,7 @@ class _VocabularyListPage extends State<VocabularyListPage> {
     );
   }
 
-  // Benim Listelerimi Gösteren Widget
+  // Benim listelerim
   Widget _buildMyLists() {
     if (_myLists.isEmpty) {
       return Center(
@@ -240,15 +188,14 @@ class _VocabularyListPage extends State<VocabularyListPage> {
       itemBuilder: (context, index) {
         final item = _myLists[index];
         return WordListItem(
-          title: item['title']!,
-          subtitle: item['subtitle']!,
-          category: item['category']!,
-          wordCount: item['wordCount']!,
-          level: item['level']!,
-          progressPercentage: item['progressPercentage']!,
-          progressColor: item['progressColor']!,
+          title: item.title,
+          subtitle: item.subtitle,
+          category: item.category,
+          wordCount: item.wordCount,
+          level: item.level,
+          progressPercentage: item.progressPercentage,
+          progressColor: item.progressColor,
           onTap: () {
-            // Detail sayfasına git
             Navigator.push(
               context,
               MaterialPageRoute(

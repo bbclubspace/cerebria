@@ -13,12 +13,14 @@ import 'auth/auth_colors.dart';
 import 'drawer/drawer_colors.dart';
 import 'home/home_colors.dart';
 import 'module/module_colors.dart';
+import 'module/exercise_list_colors.dart';
 
 class AppColors {
   final AuthColors auth;
   final HomeColors home;
   final DrawerColors drawer;
   final ModuleColors module;
+  final ExerciseListColors exerciseList;
   final ReadingColors reading;
   // Vocabulary Colors
   final VocabularyColors vocabulary;
@@ -37,6 +39,7 @@ class AppColors {
       home = HomeColors(isDarkMode: isDarkMode),
       drawer = DrawerColors(isDarkMode: isDarkMode),
       module = ModuleColors(isDarkMode: isDarkMode),
+      exerciseList = ExerciseListColors(isDarkMode: isDarkMode),
       reading = ReadingColors(isDarkMode: isDarkMode),
       // Vocabulary Colors
       vocabulary = VocabularyColors(isDarkMode: isDarkMode),
