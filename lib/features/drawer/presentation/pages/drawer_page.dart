@@ -47,7 +47,7 @@ class _DrawerPageState extends State<DrawerPage> {
              SizedBox(height: 20.h),
             NewRow(text: 'Messaging', iconPath: drawerIcons['messaging']!,route: Routes.home,),
              SizedBox(height: 20.h),
-            NewRow(text: 'Profile', iconPath: drawerIcons['profile']!,route: Routes.home,),
+            NewRow(text: 'Profile', iconPath: drawerIcons['profile']!,route: Routes.profile,),
              SizedBox(height: 20.h),
             NewRow(text: 'Logout', iconPath: drawerIcons['logout']!,route: Routes.home,),
           ],
