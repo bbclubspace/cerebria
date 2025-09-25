@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'features/profile/presentation/pages/profile_page.dart';
 import 'features/report/logic/cubit/report_cubit.dart';
 import 'features/report/data/services/report_services.dart';
 
@@ -73,6 +74,7 @@ class MainApp extends StatelessWidget {
         Routes.exam_page: (context) => const ExamPage(),
         Routes.ranking_page: (context) => const RankingPage(),
         Routes.report_page: (context) => const ReportPage(),
+        Routes.profile: (context) => const ProfilePage(),
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'package:cerebria/core/themes/exam/exam_colors.dart';
 import 'package:cerebria/core/themes/grammer/grammer_colors.dart';
 import 'package:cerebria/core/themes/listening/listening_colors.dart';
+import 'package:cerebria/core/themes/profile/profile_colors.dart';
 import 'package:cerebria/core/themes/ranking/ranking_colors.dart';
 import 'package:cerebria/core/themes/reading/reading_colors.dart';
 import 'package:cerebria/core/themes/report/report_colors.dart';
@@ -33,6 +34,7 @@ class AppColors {
   final ExamColors exam;
   final RankingColors ranking;
   final ReportColors report;
+  final ProfileColors profile;
 
   AppColors({required bool isDarkMode})
     : auth = AuthColors(isDarkMode: isDarkMode),
@@ -51,5 +53,6 @@ class AppColors {
       speaking = SpeakingColors(isDarkMode: isDarkMode),
       exam = ExamColors(isDarkMode: isDarkMode),
       ranking = RankingColors(isDarkMode: isDarkMode),
+      profile = ProfileColors(isDarkMode: isDarkMode),
       report = ReportColors(isDarkMode: isDarkMode);
 }
