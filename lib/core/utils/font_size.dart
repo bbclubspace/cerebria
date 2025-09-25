@@ -29,6 +29,7 @@ class AppFontSizes {
   static double get s22 => (22 * _scaleFactor()).sp;
   static double get s24 => (24 * _scaleFactor()).sp;
   static double get s30 => (30 * _scaleFactor()).sp;
+  static double get s40 => (40 * _scaleFactor()).sp;
 
   /// Dinamik font (gerektiğinde özel boyut çağırmak için)
   static double custom(double baseFontSize) =>

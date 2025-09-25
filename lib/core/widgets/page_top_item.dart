@@ -16,7 +16,7 @@ class PageTopItem extends StatelessWidget {
       children: [
          SizedBox(width: 16.w),
         AppBackButton(iconPath: "assets/auth-icon/back.png", colors: colors),
-         SizedBox(width: 100.w),
+         SizedBox(width: 50.w),
         Text(
           pageName,
           style: TextStyle(

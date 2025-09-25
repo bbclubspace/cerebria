@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cerebria/core/themes/app_colors.dart';
 import 'package:cerebria/core/widgets/page_top_item.dart';
 import 'package:cerebria/features/module/presentation/widgets/exercise_list_container.dart';
+import '../../../../../core/routes/routes.dart';
 import '../../widgets/vocabulary/word_list_header_card.dart';
 import '../../../data/model/list_item.dart';
 import '../../../../../core/constants/exercise_list_item.dart';
@@ -73,9 +74,7 @@ class _WordListDetailPageState extends State<WordListDetailPage> {
           exercise: exercise,
           onTap: () {
             print('${exercise.title} tapped');
-            // Navigate to respective exercise page
-            // Örnek:
-            // Navigator.push(context, MaterialPageRoute(builder: (context) => ExercisePage(exercise: exercise)));
+            Navigator.pushNamed(context, exercise.navigate);
           },
         );
       },

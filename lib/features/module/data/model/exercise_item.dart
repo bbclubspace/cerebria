@@ -5,11 +5,13 @@ class ExerciseItem {
   final Color iconColor;
   final String title;
   final String subtitle;
+  final String navigate;
 
   ExerciseItem({
     required this.icon,
     required this.iconColor,
     required this.title,
     required this.subtitle,
+    required this.navigate,
   });
 }

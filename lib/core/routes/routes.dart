@@ -7,7 +7,11 @@ class Routes {
   static const String reading_page = "/reading_page";
   // Vocabulary pages
   static const String vocabulary_page = "/vocabulary_page";
+  static const String vocabulary_flash_exercise = "/vocabulary_flash_exercise";
+  static const String vocabulary_quiz_exercise = "/vocabulary_quiz_exercise";
   static const String vocabulary_list_page = "/vocabulary_list_page";
+  static const String vocabulary_writing_page = "/vocabulary_writing_page";
+  static const String vocabulary_listening_page = "/vocabulary_listening_page";
   static const String listening_page = "/listening_page";
   static const String grammer_page = "/grammer_page";
   static const String speaking_page = "/speaking_page";

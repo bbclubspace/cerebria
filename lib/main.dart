@@ -1,11 +1,14 @@
 import 'package:cerebria/features/home/presentation/pages/main_page.dart';
 import 'package:cerebria/features/module/presentation/pages/module_page.dart';
+import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/flash/flash_test.dart';
+import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/listening/exercise_listening_page.dart';
+import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/quiz/quiz_exercise.dart';
+import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/writing/writing_page.dart';
 import 'package:cerebria/features/ranking/presentation/pages/ranking_page.dart';
 import 'package:cerebria/features/module/presentation/pages/reading/reading_page.dart';
 import 'package:cerebria/features/report/presentation/pages/report_page.dart';
 import 'package:cerebria/features/module/presentation/pages/vocabulary/vocabulary_page.dart';
 import 'package:cerebria/features/module/presentation/pages/vocabulary/vocabulary_list_page.dart';
-
 import 'package:cerebria/features/module/presentation/pages/listening/listening_page.dart';
 import 'package:cerebria/features/module/presentation/pages/grammer/grammer_page.dart';
 import 'package:cerebria/features/module/presentation/pages/speaking/speaking_page.dart';
@@ -16,7 +19,6 @@ import 'package:cerebria/features/auth/presentation/pages/sing_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'features/profile/presentation/pages/profile_page.dart';
 import 'features/report/logic/cubit/report_cubit.dart';
 import 'features/report/data/services/report_services.dart';
@@ -67,7 +69,10 @@ class MainApp extends StatelessWidget {
         // Vocabulary Page
         Routes.vocabulary_page: (context) => const VocabularyPage(),
         Routes.vocabulary_list_page: (context) => const VocabularyListPage(),
-
+        Routes.vocabulary_flash_exercise: (context) => const FlashTest(),
+        Routes.vocabulary_quiz_exercise: (context) => const QuizExercise(),
+        Routes.vocabulary_writing_page: (context) => const WritingPage(),
+        Routes.vocabulary_listening_page: (context) => const ExerciseListeningPage(),
         Routes.listening_page: (context) => const ListeningPage(),
         Routes.grammer_page: (context) => const GrammerPage(),
         Routes.speaking_page: (context) => const SpeakingPage(),

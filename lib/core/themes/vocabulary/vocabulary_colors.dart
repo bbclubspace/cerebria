@@ -33,4 +33,27 @@ class VocabularyColors {
 
   Color get lastExerciseContainerColor =>
       isDarkMode ? const Color(0xFF333333) : const Color(0xFFEAF5FF);
+
+  //exercise page colors
+  Color get exerciseTopContainerColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFFFEE5D6);
+
+  Color get exerciseItemContainerBgColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFFFFFFFF);
+  Color get exerciseItemContainerShadowColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFF9FF088);
+
+  Color get exerciseItemSelectedColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFFD8DAD7);
+
+  Color get exerciseItemCorrectBorderColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFF9FF088);
+
+  Color get exerciseItemWrongBorderColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFFFF5722);
+
+  Color get exerciseItemCorrectBgColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFFC2F3B5);
+  Color get exerciseItemWrongBgColor =>
+      isDarkMode ? const Color(0xFF333333) : const Color(0xFFFC9777);
 }
