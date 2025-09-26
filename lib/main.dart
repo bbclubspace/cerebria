@@ -1,7 +1,11 @@
 import 'package:cerebria/features/home/presentation/pages/main_page.dart';
+import 'package:cerebria/features/module/logic/flashcard/flash_card_cubit.dart';
+import 'package:cerebria/features/module/logic/listening/listening_cubit.dart';
+import 'package:cerebria/features/module/logic/quiz/quiz_cubit.dart';
+import 'package:cerebria/features/module/logic/writing/writing_cubit.dart';
 import 'package:cerebria/features/module/presentation/pages/module_page.dart';
 import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/flash/flash_test.dart';
-import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/listening/exercise_listening_page.dart';
+import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/listening/listening_exercise.dart';
 import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/quiz/quiz_exercise.dart';
 import 'package:cerebria/features/module/presentation/pages/vocabulary/exercise/writing/writing_page.dart';
 import 'package:cerebria/features/ranking/presentation/pages/ranking_page.dart';
@@ -32,10 +36,13 @@ void main() {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
-            // block yapısının başlatılması için burada eklenmesi gerekiyor
             BlocProvider<ReportsCubit>(
               create: (_) => ReportsCubit(ReportServices())..loadReports(),
             ),
+            BlocProvider<QuizCubit>(create: (_) => QuizCubit()),
+            BlocProvider<WritingCubit>(create: (_) => WritingCubit()),
+            BlocProvider<ListeningCubit>(create: (_) => ListeningCubit()),
+            BlocProvider<FlashCubit>(create: (_) => FlashCubit()),
           ],
           child: const MainApp(),
         );
@@ -72,7 +79,8 @@ class MainApp extends StatelessWidget {
         Routes.vocabulary_flash_exercise: (context) => const FlashTest(),
         Routes.vocabulary_quiz_exercise: (context) => const QuizExercise(),
         Routes.vocabulary_writing_page: (context) => const WritingPage(),
-        Routes.vocabulary_listening_page: (context) => const ExerciseListeningPage(),
+        Routes.vocabulary_listening_page: (context) =>
+            const ExerciseListeningPage(),
         Routes.listening_page: (context) => const ListeningPage(),
         Routes.grammer_page: (context) => const GrammerPage(),
         Routes.speaking_page: (context) => const SpeakingPage(),

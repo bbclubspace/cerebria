@@ -14,7 +14,7 @@ class CardTop extends StatelessWidget {
       width: 160.w,
       height: 46.h,
       decoration: BoxDecoration(
-        color: appColors.vocabulary.excerciseTopContainerColor,
+        color: appColors.vocabulary.exerciseTopContainerColor,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Center(
