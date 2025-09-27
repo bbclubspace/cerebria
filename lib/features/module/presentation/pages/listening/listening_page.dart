@@ -19,7 +19,7 @@ class ListeningPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 60.h),
-          PageTopItem(colors: colors, pageName: "Listening"),
+          PageTopItem(colors: colors, pageName: "Listening",image: "assets/content-icon/listening.png",),
           SizedBox(height: 20.h),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için

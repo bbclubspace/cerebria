@@ -19,7 +19,7 @@ class GrammerPage extends StatelessWidget {
       body: Column(
         children: [
            SizedBox(height: 60.h),
-          PageTopItem(colors: colors, pageName: "Grammer"),
+          PageTopItem(colors: colors, pageName: "Grammer",image: "assets/content-icon/idea.png"),
            SizedBox(height: 20.h),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için

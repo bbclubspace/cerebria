@@ -21,7 +21,7 @@ class ModulePage extends StatelessWidget {
         children: [
           SizedBox(height: 70.h),
           // back button and page name
-          PageTopItem(colors: colors, pageName: "Module"),
+          PageTopItem(colors: colors, pageName: "Module",),
           SizedBox(height: 16.h),
           // module grid
           Expanded(
@@ -52,12 +52,15 @@ class ModulePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: 20.h),
-                          Image.asset(
-                            item.iconPath,
-                            width: 35.w,
-                            height: 35.h,
-                            fit: BoxFit.contain,
-                            alignment: Alignment.topLeft,
+                          Hero(
+                            tag: "${item.iconPath}",
+                            child: Image.asset(
+                              item.iconPath,
+                              width: 35.w,
+                              height: 35.h,
+                              fit: BoxFit.contain,
+                              alignment: Alignment.topLeft,
+                            ),
                           ),
                           SizedBox(height: 8.h),
                           Text(

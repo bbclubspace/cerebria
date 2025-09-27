@@ -19,10 +19,9 @@ class VocabularyPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 60.h),
-          PageTopItem(colors: colors, pageName: "Vocabulary"),
+          PageTopItem(colors: colors, pageName: "Vocabulary",image: "assets/content-icon/vocabulary.png",),
           SizedBox(height: 20.h),
           CreateAiContentContainer(
-            // <--- Burası
             color1: colors.vocabulary.createContainerBgColor1,
             color2: colors.vocabulary.createContainerBgColor2,
             color3: colors.vocabulary.createContainerBgColor3,

@@ -19,7 +19,7 @@ class SpeakingPage extends StatelessWidget {
       body: Column(
         children: [
            SizedBox(height: 60.h),
-          PageTopItem(colors: colors, pageName: "Speaking"),
+          PageTopItem(colors: colors, pageName: "Speaking",image: "assets/content-icon/talking.png",),
            SizedBox(height: 20.h),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için

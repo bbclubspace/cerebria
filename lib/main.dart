@@ -1,3 +1,4 @@
+import 'package:cerebria/core/utils/page_transitions.dart';
 import 'package:cerebria/features/home/presentation/pages/main_page.dart';
 import 'package:cerebria/features/module/logic/flashcard/flash_card_cubit.dart';
 import 'package:cerebria/features/module/logic/listening/listening_cubit.dart';
@@ -56,38 +57,40 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      scrollBehavior: ScrollConfiguration.of(
-        context,
-      ).copyWith(scrollbars: false),
-      // uygulama çalışında debug diye bir flag oluyor ekranda onu kapadım
-      debugShowCheckedModeBanner: false,
-      // başlangıç olarak logini belirledim routes sınıfı üzerinden
-      initialRoute: Routes.login,
-      // uygulama içindeki tüm routelar burada belirtilecek ve yönetilecek
-      routes: {
-        // drawer ile homepage kontrolü için mainpage de birleştirdim
-        Routes.home: (context) => const MainPage(),
-        Routes.login: (context) => const LoginPage(),
-        Routes.sing_up: (context) => const SignUpPage(),
+    final routes = <String, WidgetBuilder>{
+      Routes.home: (context) => const MainPage(),
+      Routes.login: (context) => const LoginPage(),
+      Routes.sing_up: (context) => const SignUpPage(),
+      Routes.module_page: (context) => const ModulePage(),
+      Routes.reading_page: (context) => const ReadingPage(),
+      Routes.vocabulary_page: (context) => const VocabularyPage(),
+      Routes.vocabulary_list_page: (context) => const VocabularyListPage(),
+      Routes.vocabulary_flash_exercise: (context) => const FlashTest(),
+      Routes.vocabulary_quiz_exercise: (context) => const QuizExercise(),
+      Routes.vocabulary_writing_page: (context) => const WritingPage(),
+      Routes.vocabulary_listening_page: (context) => const ExerciseListeningPage(),
+      Routes.listening_page: (context) => const ListeningPage(),
+      Routes.grammer_page: (context) => const GrammerPage(),
+      Routes.speaking_page: (context) => const SpeakingPage(),
+      Routes.exam_page: (context) => const ExamPage(),
+      Routes.ranking_page: (context) => const RankingPage(),
+      Routes.report_page: (context) => const ReportPage(),
+      Routes.profile: (context) => const ProfilePage(),
+    };
 
-        Routes.module_page: (context) => const ModulePage(),
-        Routes.reading_page: (context) => const ReadingPage(),
-        // Vocabulary Page
-        Routes.vocabulary_page: (context) => const VocabularyPage(),
-        Routes.vocabulary_list_page: (context) => const VocabularyListPage(),
-        Routes.vocabulary_flash_exercise: (context) => const FlashTest(),
-        Routes.vocabulary_quiz_exercise: (context) => const QuizExercise(),
-        Routes.vocabulary_writing_page: (context) => const WritingPage(),
-        Routes.vocabulary_listening_page: (context) =>
-            const ExerciseListeningPage(),
-        Routes.listening_page: (context) => const ListeningPage(),
-        Routes.grammer_page: (context) => const GrammerPage(),
-        Routes.speaking_page: (context) => const SpeakingPage(),
-        Routes.exam_page: (context) => const ExamPage(),
-        Routes.ranking_page: (context) => const RankingPage(),
-        Routes.report_page: (context) => const ReportPage(),
-        Routes.profile: (context) => const ProfilePage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.login,
+      onGenerateRoute: (settings) {
+        final builder = routes[settings.name];
+        if (builder != null) {
+          return pageTransition(builder(context));
+        }
+        return MaterialPageRoute(
+          builder: (_) => const Scaffold(
+            body: Center(child: Text("Page not found")),
+          ),
+        );
       },
     );
   }

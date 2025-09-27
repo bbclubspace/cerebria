@@ -19,7 +19,7 @@ class ReadingPage extends StatelessWidget {
       body: Column(
         children: [
            SizedBox(height: 60.h),
-          PageTopItem(colors: colors, pageName: "Reading"),
+          PageTopItem(colors: colors, pageName: "Reading",image: "assets/content-icon/read.png",),
 
            SizedBox(height: 20.h),
           CreateAiContentContainer(

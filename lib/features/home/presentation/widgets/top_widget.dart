@@ -36,7 +36,7 @@ class TopWidget extends StatelessWidget {
         Text(
           "Cerebria",
           style: TextStyle(
-            fontSize: AppFontSizes.s12,
+            fontSize: AppFontSizes.s18,
             fontWeight: FontWeight.bold,
             color: colors.home.appNameTextColor,
           ),

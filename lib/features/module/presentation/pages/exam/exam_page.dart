@@ -19,7 +19,7 @@ class ExamPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 60.h),
-          PageTopItem(colors: colors, pageName: "Exam"),
+          PageTopItem(colors: colors, pageName: "Exam",image: "assets/content-icon/exam.png",),
           SizedBox(height: 20.h),
           CreateAiContentContainer(
             // text içeriğini parametre olarak vermeyi deneyebilirsin diğer sayfalarda uğraşmamak için

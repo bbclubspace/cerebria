@@ -6,25 +6,28 @@ import '../themes/app_colors.dart';
 import 'button/app_back_button.dart';
 
 class PageTopItem extends StatelessWidget {
-  const PageTopItem({super.key, required this.colors, required this.pageName});
+  const PageTopItem({super.key, required this.colors, required this.pageName,  this.image});
 
   final AppColors colors;
   final String pageName;
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
          SizedBox(width: 16.w),
         AppBackButton(iconPath: "assets/auth-icon/back.png", colors: colors),
-         SizedBox(width: 50.w),
+         SizedBox(width: 90.w),
         Text(
           pageName,
           style: TextStyle(
-            fontSize: AppFontSizes.s16,
+            fontSize: AppFontSizes.s18,
             fontWeight: FontWeight.w400,
             color: colors.module.titleTextColor,
           ),
         ),
+        SizedBox(width: 90.w),
+       image!=null ? Hero(tag: image!, child: Image.asset(image!)) : SizedBox(),
       ],
     );
   }
